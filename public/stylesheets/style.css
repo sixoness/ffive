@@ -1,0 +1,11 @@
+@import "m2-commonNew.css";
+@import "m2-main.css";
+@import "m2-common.css";
+@import "member_mall.css";
+@import "userCenter.css";
+@import "jquery.datetimepicker.css";
+@import "front.css";
+@import "newPage.css";
+.homebody {
+  background-color: #fff !important;
+}

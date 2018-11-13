@@ -1,0 +1,486 @@
+extends layout
+
+block content
+	include lib/header
+	#member_mall_top
+		.member_top_layout
+			.member_top_layout_content
+				p.name 我的钱帮币
+				input#signStatus(type='hidden', name='signStatus', value='1')
+				input#lottery_times(type='hidden', name='lottery_times', value='1')
+				.money
+					span#myCoin 22
+					img(src='/th/images/vipshop/member_mall2.png')
+				button#qiandao.qiandao 签到抽大奖
+				p 每日一抽 惊喜不断
+				a(href='MemberMall-exchangelog')
+					p.bottom 兑换记录>>
+	#member_mall_content
+		// 精品推荐样式
+		.solid.firstsolid
+		.circle
+		span.mytitle 赚取钱帮币
+		.circle
+		.solid.firstsolid
+		.solid.secondsolid(style='margin-left:38px;')
+		.circle
+		span.mytitle 精品推荐
+		.circle
+		.solid.secondsolid
+		.recommend 小爱推荐
+		div(style='margin-left:-30px;width:1030px;')
+			.container(style='vertical-align: top;margin-right:-4px;')
+				h6
+					a(href='chanpin.html#-zNVKfzsUZ!aw8Tc7+A.html', target='_blank', title='【新手标】爱车贷-现代ix35-XAA136') 【新手标】爱车贷-现代i…
+				p
+				.animate
+					.content_animate(style='width:36.54%')
+				p.number_animate
+					a(href='###', title='项目总额：7.36万') 7.36万
+					| /
+					a(href='###', title='项目余额：46,700.00元') 46,700.00
+					| 元
+				.scale_year
+					p.number_scale
+						| 8%+1%
+					p.jiaxishow(style='margin-left:-2px;')
+						| 活动加息1%
+					p
+					p 预期年化收益率
+				.scale_year(style='float:right;')
+					p.number_scale
+						| 32天
+					p 项目期限
+				button.money_btn(onclick='window.location.href="chanpin.html#-zNVKfzsUZ!aw8Tc7+A.html"') 立即赚取
+			.container.goods_detailed_news(data='58')
+				.pic_contain
+					img(src='/th/images/vipshop/20160824141652673.png')
+				p.pic_name 3元红包
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 200
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 200
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 125（件）
+			.container.goods_detailed_news(data='69')
+				.pic_contain
+					// <img src="/th/images/vipshop/member_mall3.png">
+					img(src='/th/images/vipshop/20160805102220960.png')
+				p.pic_name 飞科智能剃须刀
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 10000
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 10000
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 10（件）
+			.container.goods_detailed_news(data='68')
+				.pic_contain
+					// <img src="/th/images/vipshop/member_mall3.png">
+					img(src='/th/images/vipshop/20160805033052639.png')
+				p.pic_name 暴风魔镜
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 13300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 13300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 15（件）
+		// 理财神器样式
+		div(style='clear:both;')
+		.solid.thirdsolid
+		.circle
+		span.mytitle 理财神器
+		.circle
+		.solid.thirdsolid
+		div(style='height:20px;')
+		div(style='margin-left:-30px;width:1030px;')
+			.container.goods_detailed_news(data='60')
+				.pic_contain
+					img(src='/th/images/vipshop/20160824141721351.png')
+				p.pic_name 50元红包
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 3300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 3300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 91（件）
+			.container.goods_detailed_news(data='59')
+				.pic_contain
+					img(src='/th/images/vipshop/20160824141534940.png')
+				p.pic_name 15元红包
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 1000
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 1000
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 70（件）
+			.container.goods_detailed_news(data='58')
+				.pic_contain
+					img(src='/th/images/vipshop/20160824141652673.png')
+				p.pic_name 3元红包
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 200
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 200
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 125（件）
+			.container.goods_detailed_news(data='61')
+				.pic_contain
+					img(src='/th/images/vipshop/20160824141745286.png')
+				p.pic_name 75元红包
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 5000
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 5000
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 90（件）
+		// 潮流尖货样式
+		div(style='clear:both;')
+		.solid.thirdsolid.fourthsolid
+		.circle(style='background-color:#62b7f7;')
+		span.mytitle(style='color:#62b7f7;') 潮流尖货
+		.circle(style='background-color:#62b7f7;')
+		.solid.thirdsolid.fourthsolid
+		div(style='height:20px;')
+		div(style='margin-left:-30px;width:1030px;')
+			.container.goods_detailed_news(data='69')
+				.pic_contain
+					img(src='/th/images/vipshop/20160805102220960.png')
+				p.pic_name 飞科智能剃须刀
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 10000
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 10000
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 10（件）
+			.container.goods_detailed_news(data='67')
+				.pic_contain
+					img(src='/th/images/vipshop/20160805032957562.png')
+				p.pic_name PICOOC智能体脂秤
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 6600
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 6600
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 8（件）
+			.container.goods_detailed_news(data='68')
+				.pic_contain
+					img(src='/th/images/vipshop/20160805033052639.png')
+				p.pic_name 暴风魔镜
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 13300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 13300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 15（件）
+			.container.goods_detailed_news(data='72')
+				.pic_contain
+					img(src='/th/images/vipshop/20160817143650682.png')
+				p.pic_name 50元京东购物卡
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 3300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 3300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 7（件）
+			.container.goods_detailed_news(data='71')
+				.pic_contain
+					img(src='/th/images/vipshop/20160817143607359.png')
+				p.pic_name 极米智能投影仪
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 179900
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 179900
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 5（件）
+			.container.goods_detailed_news(data='73')
+				.pic_contain
+					img(src='/th/images/vipshop/20160817143909176.png')
+				p.pic_name 九号单轮平衡自行车
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 153300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 153300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 10（件）
+			.container.goods_detailed_news(data='70')
+				.pic_contain
+					img(src='/th/images/vipshop/20160805103107515.png')
+				p.pic_name 华为荣耀网络机顶盒
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 20000
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 20000
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 10（件）
+			.container.goods_detailed_news(data='74')
+				.pic_contain
+					img(src='/th/images/vipshop/20160817144058684.png')
+				p.pic_name 小米手环2
+				.pic_introduce
+					span 原价：
+					.before_price
+						span 11300
+						img(src='/th/images/vipshop/member_mall6.png')
+						.heng_solid
+				.pic_introduce
+					span.vip_name 帮主尊享价：
+					span.after_price 11300
+					img(src='/th/images/vipshop/member_mall2.png')
+				.pic_introduce
+					span 库存：
+					span 10（件）
+		div(style='height:20px;clear:both;')
+	// 整体的遮罩
+	#member_mall_mask
+	// 签到成功计数结构
+	.member_mall_mask_content
+		.member_mall_content_top.member_mall_qiandao
+			img.member_mask_chacha(src='/th/images/vipshop/member_mall8.png')
+			p#sign_status.mem_mal_con_tit 签到成功
+			p#sign_growth
+			p#sign_days
+			.mem_pic_introduce
+				p 每日一抽
+				p 惊喜不断
+		button#first_lottery.member_mall_btn.immediately_draw 立即抽奖
+	// 温馨提醒已经抽过一次了
+	#free_done.member_mall_mask_content
+		.member_mall_content_top.member_mall_remind
+			img.member_mask_chacha(src='/th/images/vipshop/member_mall8.png')
+			p.mem_mal_con_tit 温馨提醒
+			p 今天您已经免费抽奖了一次
+			.mem_pic_introduce
+				p 是否消耗5个钱帮币
+				p 再次抽奖
+		button#lottery_goon.member_mall_btn 立即抽奖
+	// 温馨提醒已经抽过很多次了
+	#lottery_none.member_mall_mask_content
+		.member_mall_content_top.member_mall_remind.member_mall_spremind
+			img.member_mask_chacha(src='/th/images/vipshop/member_mall8.png')
+			p.mem_mal_con_tit 温馨提醒
+			p 您今天的抽奖次数已超过10次
+			.mem_pic_introduce
+				p 建议您明天再来抽奖
+		button.member_mall_btn(onclick='window.location.reload()') 我知道了
+	// 抽奖失败的样式
+	#lottery_coin_none.member_mall_mask_content
+		.member_mall_content_top.member_mall_lottery
+			img.member_mask_chacha(src='/th/images/vipshop/member_mall8.png')
+			p.mem_mal_con_tit 抽奖失败
+			.mem_pic_introduce
+				p 您的钱帮币不足
+			p 建议您先投资,获取钱帮币,再来抽奖
+		button.member_mall_btn(onclick='goInvest()') 立即投资
+	// 商品红包的详细信息的弹窗
+	.goods_news_alert.goods_news_alert_click
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		p#info_goods_name.goods_name 150元红包
+		p#info_goods_info.goods_introduce 投资XXXXXXXX万元，可使用该红包
+		.pic_introduce
+			span 原价：
+			.before_price
+				span#info_goods_price 1000
+				img(src='/th/images/vipshop/member_mall6.png')
+				.heng_solid
+		.pic_introduce
+			span#info_vip_name 铁帮主尊享价：
+			span#info_vip_price.after_price 900
+			img(src='/th/images/vipshop/member_mall2.png')
+		.pic_introduce
+			span 有效期：
+			span#validity_days.info_goods_stock 7 天
+		.pic_introduce
+			span 数量：
+			.goods_number
+				.left -
+				#info_exchange_num.middle 1
+				.right +
+		.pic_introduce
+			| 已兑换
+			span#info_has_exchange XXX
+			| 件，剩余
+			span#info_goods_stock XXX
+			| 件
+		button#exchangenow.immediately_exchange_btn(data='') 立即兑换
+	// 兑换信息的弹框,兑换成功红包
+	#exchange_success.goods_news_alert.exchange_message
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		.message_result
+			.solid
+			span 兑换成功
+			.solid
+		p
+			| 恭喜您已成功兑换
+			span#exchange_goods_name
+		p
+			| 使用理财神器，
+			span(style='color:#f5733a;') 让财富增值
+		button.immediately_exchange_btn(onclick='goInvest()') 立即投资
+	// 兑换信息的弹框,兑换失败之库存不足
+	#exchange_lacking_stock.goods_news_alert.exchange_message
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		.message_result
+			.solid
+			span 兑换失败
+			.solid
+		p(style='color:#f5733a;') 库存不足
+		p 该物品已被抢空，建议您选择其他商品
+		button.immediately_exchange_btn 好的，谢谢小爱
+	// 兑换信息的弹框,兑换失败之钱帮币不足
+	#exchange_lacking_coin.goods_news_alert.exchange_message
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		.message_result
+			.solid
+			span 兑换失败
+			.solid
+		p(style='color:#f5733a;') 您的钱帮币不足
+		p 建议您先投资，获取钱帮币，再来兑换
+		button.immediately_exchange_btn(onclick='goInvest()') 立即投资
+	// 兑换信息的弹框,兑换成功小米
+	.goods_news_alert.exchange_message
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		.message_result
+			.solid
+			span 兑换成功
+			.solid
+		p 恭喜您已成功兑换小米手环一个
+		p
+			| 可在
+			a(style='color:#f5733a;') 兑换记录
+			| 中，查看物流动向
+		button.immediately_exchange_btn 我知道了
+	// 兑换信息的弹框,兑换地址完善
+	#exchange_address_none.goods_news_alert.exchange_message
+		img.goods_content_chacha(src='/th/images/vipshop/member_mall12.png')
+		.message_result
+			.solid
+			span 温馨提醒
+			.solid
+		p 您的收货地址尚未完善
+		button#completeAddress.immediately_exchange_btn 立即完善
+	// 完善收货地址的弹框
+	#member_mall_address
+		.reject_title
+			| 我的收货地址
+			img(src='/th/images/vipshop/member_mall12.png', style='float:right;')
+		#member_reject_address
+			div
+				span  *收货人
+				input#consignee(type='text', placeholder='长度不超过25个字符', style='width:250px;', name='consignee')
+			.input_contain
+				span  *省市区
+				select#lmkselect1(style='width:100px;', name='province')
+					option.all(data='all') 请选择
+				select#lmkselect2(disabled='true', style='width:100px;', name='city')
+					option.all(data='all') 请选择
+				select#lmkselect3(disabled='true', style='width:100px;', name='area')
+					option.all(data='all') 请选择
+			div
+				span *详细地址
+				input#address(type='text', placeholder='请填写详细的收货地址', style='width:325px;')
+			div
+				span *手机号码
+				input#phone(type='text', placeholder='请填写收货人的手机号码', style='width:252px;')
+			.warm_alarm_address
+				.left 温馨提醒
+				.right 每月20日统一采购本月兑换的奖品，工作人员在采购完后统一邮寄，请各位帮主耐心等待
+			p#errormessage(style='font-size:12px;font-weight:bold;margin-top:4px;')
+			button#saveAddree.keep_reject_btn 保存收货信息

@@ -1,0 +1,276 @@
+extends layout
+
+block content
+	include lib/header
+	.m2-userCentermain
+		.m2-userCentermain-aside
+			ul
+				li.m2-asideListitem
+					a.m2-aside-item(href='usercenter.html')
+						i.m2-asideIcon1
+						| 我的账户
+				li.m2-asideListitem
+					a.m2-aside-item(href='usercenter-growth-index.html')
+						i.m2-asideIcon-vip
+						| 成长值中心
+				li.m2-asideListitem
+					a.m2-aside-item.m2-aside-toggle
+						i.m2-asideIcon2
+						| 投资管理
+						b.m2-asideIcon-new
+					ul.m2-aside-secItem(style='display:none')
+						li
+							a.m2-aside-secLink-item(href='usercenter-investcontrol-investrecord.html') 投资记录
+						li
+							a.m2-aside-secLink-item(href='usercenter-investcontrol-monthrepayment.html') 回款计划
+						li
+							a.m2-aside-secLink-item(href='usercenter-investcontrol-transfer.html') 债权转让
+						li
+							a.m2-aside-secLink-item(href='touzi_licai_chanpin.html', target='_blank') 立即投资
+				li.m2-asideListitem
+					a.m2-aside-item(href='usercenter-invitefriends.html')
+						i.m2-asideIcon-invit
+						b.m2-asideIcon-prize
+						|                     邀请好友
+				li.m2-asideListitem
+					a.m2-aside-item.m2-aside-toggle(href='home-register-openbankid.html')
+						i.m2-asideIcon3
+						| 徽商资金管理
+					ul.m2-aside-secItem(style='display:none')
+						li
+							a.m2-aside-secLink-item(href='#') 充      值
+						li
+							a.m2-aside-secLink-item(href='#') 提      现
+						li
+							a.m2-aside-secLink-item(href='#') 资金流水
+				li.m2-asideListitem
+					a.m2-aside-item.m2-aside-toggle
+						i.m2-asideIcon4
+						| 奖励管理
+					ul.m2-aside-secItem(style='display:none')
+						li
+							a.m2-aside-secLink-item(href='usercenter-rewardcontrol-rewardrecord.html') 奖励金流水
+						li
+							a.m2-aside-secLink-item(href='usercenter-rewardcontrol-redpacket.html') 我的红包
+						li
+							a.m2-aside-secLink-item(href='usercenter-rewardcontrol-interestcoupon.html') 我的加息券
+						li
+							a.m2-aside-secLink-item(href='usercenter-rewardcontrol-mycoin.html') 我的钱帮币
+				li.m2-asideListitem
+					a.m2-aside-item.m2-aside-toggle
+						i.m2-asideIcon5
+						| 消息管理
+					ul.m2-aside-secItem(style='display:none')
+						li
+							a.m2-aside-secLink-item(href='usercenter-messagecontrol-sitemsg.html') 站内消息
+						li
+							a.m2-aside-secLink-item(href='usercenter-messagecontrol-set_message.html') 通知设置
+				li.m2-asideListitem
+					a.m2-aside-item.m2-aside-toggle
+						i.m2-asideIcon6
+						| 账户管理
+					ul#aaa.m2-aside-secItem(style='display:none')
+						li
+							a.m2-aside-secLink-item(href='#') 账户设置
+		#allP(style='width:100%; height:100%; position:fixed; z-index:100; display:none; top:0; left:0;')
+			div(style='width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;')
+			div(style='width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;')
+				p(style='color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;') 该项目已还清，为保护企业隐私，不再公示项目信息
+				#close(style='width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;') X
+		.m2-userCentermain-con
+			.m2-msgBox
+				b
+					| 通知
+					em
+				span#notice-text
+				a#notice-url(href='usercenter-messagecontrol-sitemsg.html')   [详情]
+				i#notice-close.m2-msgBox-close
+			.m2-wel-con(style='background-color:white;width:798px;')
+				p#greeting.m2-wel-hello(style='background-color:white;margin:0 10px;width: 730px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;', title='上午好，iqb13737301354，投资，是为了更好的自己！') 上午好，iqb13737301354，投资，是为了更好的自己！
+				.m2-wel-lef
+					.left
+						img(src='/th/images/usercenter/vip.png', alt='爱钱帮', style='margin:20px;')
+						br
+						button(style='background-color:#b7b6b6;outline:none;') 已签到
+						p
+							| 您已连续签到
+							span#day 1
+							| 天，
+						p
+							span#today 明天
+							| 再签到可获得
+							span#growth 2
+							| 个成长值
+					.right
+						.m2-userMsg-iconLv
+							a.m2-iconLevel-normal(href='usercenter-growth-index.html')
+								i
+								span 帮主
+						div
+							| 成长值：
+							span#mydetail_num(data='4000') 1
+							a(href='/usercenter-growth-index#mao', style='color:#69b1d7;float:right;') 如何加速？
+						#desc(style='margin:10px 0;font-size:12px;')
+							| 距离 
+							span#vipname 铁帮主
+							|  还需要 
+							span#integral 3999
+							|                         成长值
+						#growth_scale
+							.bg
+						ul(style='margin:16px 0 10px 0;')
+							li.m2-userMsg-icon(style='margin-left:-8px;')
+								a#verify_id.m2-iconUser-fal(href='#', title='实名认证')
+							li.m2-userMsg-icon
+								a#verify_phone.m2-iconPho-fal(href='#?phone=1', title='手机认证')
+							li.m2-userMsg-icon
+								a#verify_email.m2-iconEmail-fal(href='#?email=1', title='邮箱认证')
+						.m2-wel-level(style='margin-left:0;')
+							p
+								| 安全等级：
+								span#safe_level.m2-level-low(style='color:#1adb9e;')
+								a#safe_level_url(href='#', style='color:#0996cc;') [提升]
+				.m2-wel-rig(style='float:right;width:320px;padding-top:66px;height:174px;border-left:1px solid #f0f0f0;')
+					.m2-wel-profitCon
+						.m2-wel-profit(style='width:142px;')
+							p
+								| 累计收益（元）
+								b
+									u(style='width:100px;z-index: 10;')
+										em.m2-userProfit-arr
+										em.m2-userProfit-arrBg
+										|                                     到账收益：0.00
+										br
+							span 0.00
+						.m2-wel-profit(style='width:142px;')
+							p
+								| 今日赚取（元）
+								b
+									u(style='width:120px;')
+										em.m2-userProfit-arr
+										em.m2-userProfit-arrBg
+										|                                     按在投项目精确计算的当天收益金额
+							span 0.00
+					.m2-wel-profitLink(style='padding-top:26px; margin-left:10px;')
+						a.m2-profit-cha(href='home-register-openbankid.html') 徽商充值
+						a.m2-profit-cha(href='home-register-openbankid.html', style='margin-left:54px;') 徽商提现
+						// 
+			.m2-userInd-num
+				.border
+					| 温馨提示：因数据处理存在延迟，项目还款时数值会存在异常波动，还款后2小时银行完成对账后显示为正常值。
+				ul
+					li.m2-userIndnum-item
+						p.m2-detail-tit
+							| 资产总计:
+						span.m2-detailNum-tur(style='color:#f5944f') 0.00
+						i.m2-userIndnum-equ
+					li.m2-userIndnum-item
+						p.m2-detail-tit
+							| 待收本金:
+						span.m2-detailNum-fal 0.00
+						i.m2-userIndnum-add
+					li.m2-userIndnum-item
+						p.m2-detail-tit
+							| 待收收益:
+						span.m2-detailNum-fal 0.00
+						i.m2-userIndnum-add
+					li.m2-userIndnum-item
+						p.m2-detail-tit
+							| 可用奖励金:
+						span.m2-detailNum-fal 0.00
+						i.m2-userIndnum-add
+					li.m2-userIndnum-item
+						p.m2-detail-tit
+							| 账户余额:
+							b.m2-detail-titIcon
+								u(style='width:160px;text-align:left')
+									em.m2-detail-titHide-arr
+									em.m2-detail-titHide-arrBg
+									// 
+									| 徽商账户余额：0.00
+						span.m2-detailNum-fal 0.00
+			.m2-profitChart
+				img.m2-chartLoading(src='/th/images/usercenter/m2-ajax-loading.gif', alt='')
+				.m2-chart-head
+					h3
+						i
+						| 收益走势
+					hr(style='display:inline-block;width:110px;border:0;background-color:#0996cc;height:1px;margin-left:6px;')
+					hr(style='display:inline-block;width:682px;border:0;background-color:#dadada;height:1px;margin-left:-4px;')
+				.m2-profitChart-tit
+					span.m2-chartItemtit-day.m2-chart-unsel 日收益
+					span.m2-chartItemtit-mon.m2-chart-sel 月收益
+				.m2-chart-con(style='background-color:white;')
+					#m2-chartMonth.m2-chartItemuser
+			.m2-backCalendar
+				.m2-backCalendar-head(style='margin-bottom:8px;')
+					h3
+						i
+						| 回款日历
+					hr(style='display:inline-block;width:110px;border:0;background-color:#0996cc;height:1px;margin-left:6px;')
+					hr(style='display:inline-block;width:682px;border:0;background-color:#dadada;height:1px;margin-left:-4px;')
+				style.
+				.m2-backCalendar-con
+					.m2-backCalendar-lef
+						.m2-calendarItemuser
+							input#m2-user-datetimepicker(type='text')
+						.b0-backDet
+							.b0-backLef
+								.b0-orange
+									span.b0-lefTit(style='color:black') 本月计划回款：
+									span#thismonthincome.b0-lefNum(style='color:black')
+								.b0-purple
+									span.b0-lefTit 本月实际回款：
+									span#thismonthrealincome.b0-lefNum
+							.b0-backRig
+								.b0-rigTop
+									.b0-rigDis
+										i(style='background-color:#FBBBA3;')
+										span 待还款
+									.b0-rigDis(style='margin-left:20px;')
+										i(style='background-color:#D4D4D4;')
+										span 已结清
+								.b0-rigBot
+									i.b0-iconAdv
+									span.b0-botDet 提前还款
+									span.b0-backMore
+										span
+											i
+											| 借款人在有能力且有意愿提前归还本金的时候，提前清偿了所有剩余本金及实际借款期间所产生的利息，则投资者的本金及实际借款期间所产生的利息会即时返还至投资者的账户；
+											br
+											b
+												| 收到提前还款：当日有提前清偿的本息到账；
+												br
+												| 提前还款：当日有计划还款的资金已于日前清偿本息；
+					.m2-backCalendar-rig
+						.m2-backRig-nextDate
+							span.m2-nextDatetit 下个回款日期
+							a#paymentdetail-a 回款细节
+							p#next_pay_day.m2-nextDatecon ---- . -- . --
+						.m2-backRiginfo
+							p.m2-backRiginfo-amo
+								| 回款交易：
+								span#next_pay_day_num
+								| 个
+							p.m2-backRiginfo-tit 收回本息(元)
+							p.m2-backRiginfo-num
+								span#next_pay_day_income
+			.m2-user-invest
+				.m2-user-invest-head
+					h3
+						i
+						| 最近投资记录
+						a(href='usercenter-investcontrol-investrecord.html') 更多
+					hr(style='display:inline-block;width:148px;border:0;background-color:#0996cc\
+					;height:1px;margin-left:6px;')
+					hr(style='display:inline-block;width:642px;border:0;background-color:#dadada;height:1px;margin-left:-4px;')
+				.m2-user-invest-list
+					table.m2-userInvest-table(cellpadding='0', cellspacing='0')
+						tbody
+							tr.m2-userInevst-head
+								th(style='width:150px;') 项目名称
+								th(style='width:130px;') 投资金额
+								th(style='width:110px;') 收益率
+								th(style='width:120px;') 计息日
+								th(style='width:120px;') 还款日
+								th(style='width:148px;')

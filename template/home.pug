@@ -1,0 +1,4325 @@
+extends layout
+
+
+block content
+	include lib/header
+	.homebody
+		.m2-banner-box
+			//登录注册
+			.m2-indexLogincon
+				.mo2-indexLoginbox
+					.mo2-indLogreg
+						.mo2-indLogtab
+							ul
+								li.mo2-logTab-unsel.mo2-indTab-reg
+									span 注册
+									b
+								li.mo2-logTab-sel.mo2-indTab-log
+									span 登录
+									b
+						//注册
+					.mo2-indRegboxRight(style='display:none;')
+							.mo2-indLogitem(style='margin-bottom:6px;')
+								i.mo2-indLogicon-tel
+								input#regTelRight.mo2-indIpt-all(maxlength='11', type='text', placeholder='输入手机号码')
+								b.mo2-indLogwarRight
+									em.mo2-indlogWar-arr
+									u
+							.mo2-indLogitem(style='margin-bottom:6px;')
+								i.mo2-indLogicon-psw
+								input#passRight.mo2-indIpt-all.m2-ind-banPsw(type='password', placeholder='6-20位数字与字母组合的密码')
+								b.mo2-indLogwarRight
+									em.mo2-indlogWar-arr
+									u
+							.mo2-indLogitem-step1
+								.mo2-indLogreg-step1
+									i.mo2-indLogicon-code
+									input.mo2-indIptcod-step1(type='text', placeholder='验证码')
+								img#reverifyCodeRight.mo2-indRegcode(src='/th/images/home/home-register-VerifyCode.png', onclick="document.getElementById('reverifyCodeRight').src='home-register-VerifyCode.png?time='+Math.random();void(0);", alt='点击刷新验证码')
+								span.mo2-indReg-refresh 看不清？换一张
+								b.mo2-indLogwarRight
+									em.mo2-indlogWar-arr
+									u
+							#verifyregcode.mo2-indReg-btn(onclick='verifycodeRight();', style='margin-top:8px;')
+								a.mo2-indRegbtn-able(href='#') 立即注册
+							.mo2-indRegagree
+								i.mo2-indReg-sel
+								span 我已阅读并同意
+								b 《爱钱帮注册服务协议》
+					//登录
+					.mo2-indLogboxRight
+						.mo2-indLogitem.mo2-indLogitem-use(style='margin-bottom:9px;')
+							i.mo2-indLogicon-use
+							input#user_nameRight.mo2-indIpt-all(type='text', placeholder='用户名/手机号')
+							b#w_username.mo2-indLogwar
+								em.mo2-indlogWar-arr
+								u#r_usernameRight
+						.mo2-indLogitem.mo2-indLogitem-psw(style='margin-bottom:9px;')
+							i.mo2-indLogicon-psw
+							input#pass_wordRight.mo2-indIpt-all.m2-ind-banPsw(maxlength='20', type='password', placeholder='输入登录密码')
+							b#w_password.mo2-indLogwar
+								em.mo2-indlogWar-arr
+								u#r_passwordRight
+						.mo2-indLog-code(style='display:none;margin-bottom:8px;')
+							.mo2-indLogcod-lef
+								i.mo2-indLogicon-psw
+								input#vcodeRight(type='text', placeholder='验证码')
+							.mo2-indLogcod-rig
+								img(src='/th/images/home/Index-VerifyCode.png', onclick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);", alt='点击刷新验证码')
+						.mo2-indLog-forget
+							a(href='forget.html') 忘记密码?
+						.mo2-indReg-btn
+							a.mo2-indRegbtn-able(onclick='loginRight();') 登录
+
+			//轮播图
+			.m2-bd
+				ul#m2-ul
+					li(style='background:#249FEA;')
+						.m-width
+							a(href='#', target='_blank')
+								img(src='/th/images/home/banner/20160901201933885.png', title='banner-PC', alt='banner-PC')
+					li(style='background:#4B89DC;')
+						.m-width
+							a(href='zhuanti_show.html#/market-RiskAppraisal-index', target='_blank')
+								img(src='/th/images/home/banner/20160816173110355.png', title='风险评测', alt='风险评测')
+					li(style='background:#DC3C3E;')
+						.m-width
+							a(href='#', target='_blank')
+								img(src='/th/images/home/banner/20160808201936672.png', title='新人福利', alt='新人福利')
+					li(style='background:#8603ED;')
+						.m-width
+							a(href='usercenter-invitefriends.html', target='_blank')
+								img(src='/th/images/home/banner/2016080820183390.png', title='爱钱帮邀请好友一起赚', alt='爱钱帮邀请好友一起赚')
+					li(style='background:#8293FF;')
+						.m-width
+							a(href='company_finance.html', target='_blank')
+								img(src='/th/images/home/banner/20160810194657369.png', title='企业理财', alt='企业理财')
+					li(style='background:#EC711E;')
+						.m-width
+							a(href='#', target='_blank')
+								img(src='/th/images/home/banner/20160808200346417.png', title='爱钱帮荣膺中国互联网金融协会首批会员', alt='爱钱帮荣膺中国互联网金融协会首批会员')
+					li(style='background:#0685CE;')
+						.m-width
+							a(href='#', target='_blank')
+								img(src='/th/images/home/banner/20160830204157918.png', title='徽商银行直接存管', alt='徽商银行直接存管')
+					li(style='background:#62B7F7;')
+						.m-width
+							a(href='#', target='_blank')
+								img(src='/th/images/home/banner/20160808200310378.png', title='盛大资本', alt='盛大资本')
+			//tips
+			.m2-banner-btn
+				a.m2-prev(style='display:none;', href='javascript:void(0);')
+				a.m2-next(style='display:none;', href='javascript:void(0);')
+				.m2-hd
+					.m2-hdBg
+					ul
+
+		.m2-indexMain(style='width: 1000px;margin: 0 auto;position:relative;')
+			.mo2-indexStep
+				ul
+					li.mo2-indSteite.mo2-indSteite1
+						a(href='anquanlicai_baozhang.html', target='_blank')
+							.mo2-indStelef
+								i.mo2-indSteicon1
+							.mo-indSterig
+								p.mo2-indSte-big 安全可靠
+								p.mo2-indSte-sma
+									| 资金银行存管
+									br
+									| 银行级风控
+					li.mo2-indSteite.mo2-indSteite2
+						a(href='touzi_licai_chanpin.html', target='_blank')
+							.mo2-indStelef
+								i.mo2-indSteicon2
+							.mo-indSterig
+								p.mo2-indSte-big 安全收益
+								p.mo2-indSte-sma
+									| 稳健预期年化收益
+									br
+									| 余额生息
+					li.mo2-indSteite.mo2-indSteite3
+						a(href='touzi_licai_chanpin.html', target='_blank')
+							.mo2-indStelef
+								i.mo2-indSteicon3
+							.mo-indSterig
+								p.mo2-indSte-big 灵活方便
+								p.mo2-indSte-sma
+									| 百元起投 提现秒到
+									br
+									| 当日投资 当日计息
+					li.mo2-indSteite.mo2-indSteite4(style='width:174px;')
+						a(href='guanyu_aiqianbang.html', target='_blank')
+							.mo2-indStelef
+								i.mo2-indSteicon4
+							.mo-indSterig
+								p.mo2-indSte-big 实力雄厚
+								p.mo2-indSte-sma
+									| 盛大资本战略投资
+									br
+			//滚动广告
+			.mo2-notice
+				#upRoll1.upRoll
+					#holder1
+						ul.list-ul1
+							li
+								a(href='dashiji_show.html#16013.html')
+									span.mo2-rollTit
+										| 【平台公告】关于部分银行升级“快捷充值”功能的公告
+										b
+											font(color='red') new
+									span.mo2-rollTiM 2016-08-24
+							li
+								a(href='dashiji_show.html#16009.html')
+									span.mo2-rollTit 爱钱帮CEO王吉涛出席全球互联网创新金融峰会
+									span.mo2-rollTiM 2016-08-19
+							li
+								a(href='dashiji_show.html#16005.html')
+									span.mo2-rollTit 【平台公告】关于网络优化的公告
+									span.mo2-rollTiM 2016-08-18
+				.mo2-notMore
+					a(href='/aiqianbang_licaiwang_gonggao') 更多公告
+			//新手体验
+			.mo2-indexSingle
+					.mo2-indWbq
+						h2
+							i.mo2-indProtop-sma.tobig 新手项目
+							a(href='tiyanjin.html', target='_blank')
+							span 新手体验金
+						.mo2-indWbqmain
+							.mo2-indWbqmain-lef
+							.mo2-indWbqmain-rig
+								h4
+									a(href='tiyanjin.html', target='_blank', title='爱钱帮理财新手体验金项目') 爱钱帮理财新手体验金项目
+								.mo2-indWbqdet
+									p
+										span.mo2-indWbqdet-tit 预期年化收益率：
+										span.mo2-indWbqdet-sma 10%
+										span.mo2-indWbqdet-sma.huodongjiaxi(style='font-size:20px;') +10%
+										span.jiaxishow(style='margin-top:-14px;margin-left:150px;') 活动加息10%
+									p(style='height:36px;')
+										span.mo2-indWbqdet-tit(style='line-height:36px;') 项目余额：
+										span.mo2-indWbqdet-nor 4782万元
+									p(style='height:36px;')
+										span.mo2-indWbqdet-tit(style='line-height:36px;') 项目时间：
+										span.mo2-indWbqdet-nor 2天
+								.mo2-indWbqrig-main
+									.mo2-indWbqtim
+										span.mo2-wbqTimedown
+											b
+											span.mo2-wbqDay
+												i
+												| 天
+											span.mo2-wbqHou
+												i
+												| 时
+											span.mo2-wbqMin
+												i
+												| 分
+											span.mo2-wbqSec
+												i
+												| 秒
+									.mo2-wbqProc(style='display:none;')
+										span.mo2-wbqProcess
+											span.mo2-wbqProcess-tit 正在募集：
+											b
+												i(style='width:4.36%;')
+												u(style='left:4.36%;')
+													| 4.36%
+													em
+									.mo2-wbqBtn
+										a(href='tiyanjin.html', target='_blank') 即将开始
+					.mo2-indPri
+						h2
+							i.mo2-indProtop-sma.tobig 新手项目
+							a(href='#')
+							span 新手专享标
+						.mo2-indPrimain
+							.mo2-indPrimain-lef
+							.mo2-indPrimain-rig
+								h4
+									a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank', title='爱车贷-雪佛兰迈锐宝-XAA067') 爱车贷-雪佛兰迈锐宝-XA…
+								.mo2-indPridet
+									p(style='margin-bottom:10px;')
+										span.mo2-indPridet-tit 预期年化收益率：
+										span.mo2-indPridet-big.huodongjiaxi
+											| 8%
+											span(style='font-size:20px;') +1%
+										span.jiaxishow(style='margin-top:-20px;margin-left:120px;')
+											| 活动加息1%
+									p
+										span.mo2-indPridet-tit 项目余额：
+										span.mo2-indPridet-nor 4.99万
+								.mo2-indPririg-main
+									.mo2-indPritim
+										span.mo2-priTimedown
+											b
+											span.mo2-priDay
+												i
+												| 天
+											span.mo2-priHou
+												i
+												| 时
+											span.mo2-priMin
+												i
+												| 分
+											span.mo2-priSec
+												i
+												| 秒
+									.mo2-priProc(style='display:none;')
+										span.mo2-priProcess
+											span.mo2-priProcess-tit 正在募集：
+											b
+												i(style='width:42.11%;')
+												u(style='left:42.11%;')
+													| 42.11%
+													em
+									.mo2-priBtn
+										a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank') 即将开始
+			//爱车
+			.mo2-indCar-con
+				h2.mo2-indCar-head
+					i.mo2-indProtop-sma.tobig 投资理财 — 爱车贷
+					a.mo2-indCarhead-a1(href='touzi_licai_chanpin.html')
+					span 汽车金融，垂直细分新领域
+					a.mo2-indCarhead-a2(href='touzi_licai_chanpin.html') 查看全部
+				.mo2-indCarlist-prev
+				.mo2-indCarlist-next
+				.mo2-indCarbox
+					ul.mo2-indCar
+						li.mo2-indCarlist.mo2-indCarlist-ing
+							.mo2-indCartop
+								.mo2-indCartop-img
+									i.mo2-listNewicon
+									img(src='/th/images/home/182015-20160902132425642.jpg', alt='爱车贷-雪佛兰迈锐宝-XAA067', title='爱车贷-雪佛兰迈锐宝-XAA067', onclick="window.open('duanqi_licai_chanpin-moxOeTwTZaOw8TY79g.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank', title='爱车贷-雪佛兰迈锐宝-XAA067') 爱车贷-雪佛兰迈锐宝-XAA067
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 4.99万
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:42%;')
+											u(style='left:42%;')
+												| 42%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank') 立即投资
+						li.mo2-indCarlist.mo2-indCarlist-ing
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/200528-201609011135068334.jpg', alt='【新手标】爱车贷-丰田普瑞维亚-SX047', title='【新手标】爱车贷-丰田普瑞维亚-SX047', onclick="window.open('duanqi_licai_chanpin-md0YeDEUbvew8TU68g.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank', title='【新手标】爱车贷-丰田普瑞维亚-SX047') 【新手标】爱车贷-丰田普瑞维亚-SX047
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 200元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:99%;')
+											u(style='left:99%;')
+												| 99%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank') 立即投资
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/200528-201609031224409479.jpg', alt='爱车贷-尼桑天籁-SX119', title='爱车贷-尼桑天籁-SX119', onclick="window.open('duanqi_licai_chanpin-md0fJWlJZPew8TY+8A.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank', title='爱车贷-尼桑天籁-SX119') 爱车贷-尼桑天籁-SX119
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/208071-201609031345456731.jpg', alt='爱车贷-本田艾力绅-HCK120', title='爱车贷-本田艾力绅-HCK120', onclick="window.open('duanqi_licai_chanpin-nNtKLzlGY!Gw8TY+8g.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank', title='爱车贷-本田艾力绅-HCK120') 爱车贷-本田艾力绅-HCK120
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/199076-201609031612075569.jpg', alt='爱车贷-风行景逸-XT125', title='爱车贷-风行景逸-XT125', onclick="window.open('duanqi_licai_chanpin-mNtPLjgTY!Gw8TY++A.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank', title='爱车贷-风行景逸-XT125') 爱车贷-风行景逸-XT125
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/182015-201609021449381074.jpg', alt='爱车贷-北汽坤宝-XAA090', title='爱车贷-北汽坤宝-XAA090', onclick="window.open('duanqi_licai_chanpin-zdROJW1HYfWw8TY69A.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-zdROJW1HYfWw8TY69A.html', target='_blank', title='爱车贷-北汽坤宝-XAA090') 爱车贷-北汽坤宝-XAA090
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-zdROJW1HYfWw8TY69A.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/300410-201609021848439311.jpg', alt='爱车贷-别克凯越-AKK109', title='爱车贷-别克凯越-AKK109', onclick="window.open('duanqi_licai_chanpin-md9JKjFIbvGw8TY49w.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-md9JKjFIbvGw8TY49w.html', target='_blank', title='爱车贷-别克凯越-AKK109') 爱车贷-别克凯越-AKK109
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-md9JKjFIbvGw8TY49w.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/196107-201609031419270.jpg', alt='爱车贷-大众宝来-SR122', title='爱车贷-大众宝来-SR122', onclick="window.open('duanqi_licai_chanpin-zdsbJW1DZ!Cw8TY+9A.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-zdsbJW1DZ!Cw8TY+9A.html', target='_blank', title='爱车贷-大众宝来-SR122') 爱车贷-大众宝来-SR122
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-zdsbJW1DZ!Cw8TY+9A.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/294791-201609031439176634.jpg', alt='爱车贷-JEEP牧马人-YKK123', title='爱车贷-JEEP牧马人-YKK123', onclick="window.open('duanqi_licai_chanpin-kI4fJT8VMviw8TY+9Q.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-kI4fJT8VMviw8TY+9Q.html', target='_blank', title='爱车贷-JEEP牧马人-YKK123') 爱车贷-JEEP牧马人-YKK123
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-kI4fJT8VMviw8TY+9Q.html', target='_blank') 还款中
+						li.mo2-indCarlist.mo2-indCarlist-ed
+							.mo2-indCartop
+								.mo2-indCartop-img
+									img(src='/th/images/home/253893-201609031514329977.JPG', alt='爱车贷-五菱箱货-ASK124', title='爱车贷-五菱箱货-ASK124', onclick="window.open('duanqi_licai_chanpin-m45JeD9BM!iw8TY+9w.html')")
+								.mo2-indCartop-rig
+									ul
+										li.mo2-indCar-tit
+											a(href='chanpin.html#-m45JeD9BM!iw8TY+9w.html', target='_blank', title='爱车贷-五菱箱货-ASK124') 爱车贷-五菱箱货-ASK124
+										li.mo2-indCar-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indCar-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indCar-msg
+											span 项目余额：
+											span 0元
+							.mo2-indCarmid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indCarbot
+								a(href='chanpin.html#-m45JeD9BM!iw8TY+9w.html', target='_blank') 还款中
+			
+			.mo2-indCar-con
+				h2.mo2-indHouse-head
+					i.mo2-indProtop-sma.tobig 投资理财 — 爱房贷
+					a.mo2-indHousehead-a1(href='touzi_licai_chanpin.html')
+					span 核心区域房产，依托银行审核，100%实地考察评估
+					a.mo2-indHousehead-a2(href='touzi_licai_chanpin.html') 查看全部
+				.mo2-indHoulist-prev
+				.mo2-indHoulist-next
+				.mo2-indHoubox
+					ul.mo2-indHou
+						li.mo2-indHoulist.mo2-indHoulist-ed
+							.mo2-indHoutop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160902100019172.jpg', title='爱房贷-北京个人房屋周转贷FDTX160902-2', onclick="window.open('#')")
+								.mo2-indHoutop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-mY8ZJToSZPiw8TUz8g.html', target='_blank', title='爱房贷-北京个人房屋周转贷FDTX160902-2') 爱房贷-北京个人房屋周转贷FDTX160902-2
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 2个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-mY8ZJToSZPiw8TUz8g.html', target='_blank') 还款中
+						li.mo2-indHoulist.mo2-indHoulist-ed
+							.mo2-indHoutop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160901103553993.jpg', title='爱房贷-北京个人房产周转贷款FDYDH160903', onclick="window.open('aifangdai_licai_chanpin-mNpPKjlHZ!mw8TQy+A.html')")
+								.mo2-indHoutop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-mNpPKjlHZ!mw8TQy+A.html', target='_blank', title='爱房贷-北京个人房产周转贷款FDYDH160903') 爱房贷-北京个人房产周转贷款FDYDH160903
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 9%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 3个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-mNpPKjlHZ!mw8TQy+A.html', target='_blank') 还款中
+						li.mo2-indHoulist.mo2-indHoulist-ed
+							.mo2-indHoutop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160830181408684.jpg', title='爱房贷-北京个人房产周转贷FDHX160842-3', onclick="window.open('aifangdai_licai_chanpin-ydVPfDtEMPaw8TQ58Q.html')")
+								.mo2-indHoutop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-ydVPfDtEMPaw8TQ58Q.html', target='_blank', title='爱房贷-北京个人房产周转贷FDHX160842-3') 爱房贷-北京个人房产周转贷FDHX160842-3
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-ydVPfDtEMPaw8TQ58Q.html', target='_blank') 还款中
+						li.mo2-indHoulist.mo2-indHoulist-ed
+							.mo2-indHoutop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160830181332850.jpg', title='爱房贷-北京个人房产周转贷FDHX160842-2', onclick="window.open('aifangdai_licai_chanpin-mo9JJTgXY!Ww8TQ58A.html')")
+								.mo2-indHoutop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-mo9JJTgXY!Ww8TQ58A.html', target='_blank', title='爱房贷-北京个人房产周转贷FDHX160842-2') 爱房贷-北京个人房产周转贷FDHX160842-2
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-mo9JJTgXY!Ww8TQ58A.html', target='_blank') 还款中
+						li.mo2-indHoulist.mo2-indHoulist-ed
+							.mo2-indHoutop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160830162753817.jpg', title='爱房贷-北京个人房产周转贷FDHX160842-1', onclick="window.open('aifangdai_licai_chanpin-yttJLDtCYfiw8TQ78Q.html')")
+								.mo2-indHoutop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-yttJLDtCYfiw8TQ78Q.html', target='_blank', title='爱房贷-北京个人房产周转贷FDHX160842-1') 爱房贷-北京个人房产周转贷FDHX160842-1
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 8%+1%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息1%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 1个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-yttJLDtCYfiw8TQ78Q.html', target='_blank') 还款中
+			.mo2-indCar-con
+				h2.mo2-indHouse-head
+					i.mo2-indProtop-sma.tobig 投资理财 — 消费金融
+					a.mo2-indfinancehead-a1(href='touzi_licai_chanpin.html')
+					span  真实消费场景，依托大数据风控，实地考察评估
+					a.mo2-indHousehead-a2(href='touzi_licai_chanpin.html') 查看全部
+				.mo2-indFinlist-prev
+				.mo2-indFinlist-next
+				.mo2-indHoubox
+					ul.mo2-indFin
+						li.mo2-indFinlist.mo2-indHoulist-ed
+							.mo2-indFintop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160831135222215.jpg', title='致胜地产长租公寓项目—装修', onclick="window.open('#')")
+								.mo2-indFintop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-yttLJD0QZPWw8TQ+9Q.html', target='_blank', title='致胜地产长租公寓项目—装修') 致胜地产长租公寓项目—装修
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 10%+2%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息2%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 12个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-yttLJD0QZPWw8TQ+9Q.html', target='_blank') 还款中
+						li.mo2-indFinlist.mo2-indHoulist-ed
+							.mo2-indFintop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160831175944154.jpg', title='汽车以租代购项目LDFC160810', onclick="window.open('touzi_licai_chanpin-ztQcKTFEYPew8DQz+Q.html')")
+								.mo2-indFintop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-ztQcKTFEYPew8DQz+Q.html', target='_blank', title='汽车以租代购项目LDFC160810') 汽车以租代购项目LDFC160810
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 10%+2%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息2%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 12个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-ztQcKTFEYPew8DQz+Q.html', target='_blank') 还款中
+						li.mo2-indFinlist.mo2-indHoulist-ed
+							.mo2-indFintop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160830150841937.jpg', title='汽车以租代购项目LDFC160809', onclick="window.open('touzi_licai_chanpin-m4xFKDATYqWw8TM89Q.html')")
+								.mo2-indFintop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-m4xFKDATYqWw8TM89Q.html', target='_blank', title='汽车以租代购项目LDFC160809') 汽车以租代购项目LDFC160809
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 10%+2%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息2%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 12个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-m4xFKDATYqWw8TM89Q.html', target='_blank') 还款中
+						li.mo2-indFinlist.mo2-indHoulist-ed
+							.mo2-indFintop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160830100207514.jpg', title='汽车以租代购项目LDFC160808', onclick="window.open('touzi_licai_chanpin-mN5ILD9GMqWw8TM48A.html')")
+								.mo2-indFintop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-mN5ILD9GMqWw8TM48A.html', target='_blank', title='汽车以租代购项目LDFC160808') 汽车以租代购项目LDFC160808
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 10%+2%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息2%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 12个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-mN5ILD9GMqWw8TM48A.html', target='_blank') 还款中
+						li.mo2-indFinlist.mo2-indHoulist-ed
+							.mo2-indFintop
+								.mo2-indHoutop-img
+									img(src='/th/images/home/thumb_20160825125751353.jpg', title='汽车以租代购项目LDFC160807', onclick="window.open('touzi_licai_chanpin-zNwYLD4XZfew8TAz8w.html')")
+								.mo2-indFintop-rig
+									ul
+										li.mo2-indHou-tit
+											a(href='chanpin.html#-zNwYLD4XZfew8TAz8w.html', target='_blank', title='汽车以租代购项目LDFC160807') 汽车以租代购项目LDFC160807
+										li.mo2-indHou-msg
+											span 预期年化收益率：
+											span.huodongjiaxi
+												| 10%+2%
+											p.jiaxishow(style='margin-top:0;margin-left:60px;')
+												| 活动加息2%
+										li.mo2-indHou-msg
+											span 项目期限：
+											span 12个月
+										li.mo2-indHou-msg
+											span 项目余额：
+											span 0元
+							.mo2-indHoumid
+								.mo2-carProc
+									span.mo2-carProcess
+										span.mo2-carProcess-tit 正在募集：
+										b
+											i(style='width:100%;')
+											u(style='left:100%;')
+												| 100%
+												em
+							.mo2-indHoubot
+								a(href='chanpin.html#-zNwYLD4XZfew8TAz8w.html', target='_blank') 还款中
+			.m2-indexStepbox
+				.m2-indexSteplist-box
+					ul.m2-indexSteplist
+						li.m2-indexStep-sel
+							i
+							b
+							span 项目直投
+						li.m2-indexStep-unsel
+							i
+							span 债权转让
+				.m2-indexStepimg-box
+					ul.m2-indexStepimg-list
+			.m2-indexItembox
+				.m2-indexItemlist-prev
+				.m2-indexItemlist-next
+				.m2-indexItembox-con
+					ul.m2-indexItemlist
+						li.m2-indexItem.m2-indexItem-ing.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank', title='爱车贷-雪佛兰迈锐宝-XAA067') 爱车贷-雪佛兰迈锐宝-XAA067
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 42.11%;')
+								span.m2-indItemprogress-num 42.11%
+							.m2-indItembtn
+								a.m2-indItembtn-ing(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank') 立即投资
+						li.m2-indexItem.m2-indexItem-ing.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank', title='【新手标】爱车贷-丰田普瑞维亚-SX047') 【新手标】爱车贷-丰田普瑞维亚-SX047
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 99.91%;')
+								span.m2-indItemprogress-num 99.91%
+							.m2-indItembtn
+								a.m2-indItembtn-ing(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank') 立即投资
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank', title='爱车贷-尼桑天籁-SX119') 爱车贷-尼桑天籁-SX119
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank', title='爱车贷-本田艾力绅-HCK120') 爱车贷-本田艾力绅-HCK120
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank', title='爱车贷-风行景逸-XT125') 爱车贷-风行景逸-XT125
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zdROJW1HYfWw8TY69A.html', target='_blank', title='爱车贷-北汽坤宝-XAA090') 爱车贷-北汽坤宝-XAA090
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zdROJW1HYfWw8TY69A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zdROJW1HYfWw8TY69A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-md9JKjFIbvGw8TY49w.html', target='_blank', title='爱车贷-别克凯越-AKK109') 爱车贷-别克凯越-AKK109
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-md9JKjFIbvGw8TY49w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-md9JKjFIbvGw8TY49w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zdsbJW1DZ!Cw8TY+9A.html', target='_blank', title='爱车贷-大众宝来-SR122') 爱车贷-大众宝来-SR122
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zdsbJW1DZ!Cw8TY+9A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zdsbJW1DZ!Cw8TY+9A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kI4fJT8VMviw8TY+9Q.html', target='_blank', title='爱车贷-JEEP牧马人-YKK123') 爱车贷-JEEP牧马人-YKK123
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kI4fJT8VMviw8TY+9Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kI4fJT8VMviw8TY+9Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m45JeD9BM!iw8TY+9w.html', target='_blank', title='爱车贷-五菱箱货-ASK124') 爱车贷-五菱箱货-ASK124
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m45JeD9BM!iw8TY+9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m45JeD9BM!iw8TY+9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nd0bLzgTNaew8TUy8w.html', target='_blank', title='爱车贷-东南DX7-XHA089') 爱车贷-东南DX7-XHA089
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nd0bLzgTNaew8TUy8w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nd0bLzgTNaew8TUy8w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mtpLJDhENKCw8TY68A.html', target='_blank', title='爱车贷-吉利博瑞-XAA093') 爱车贷-吉利博瑞-XAA093
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mtpLJDhENKCw8TY68A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mtpLJDhENKCw8TY68A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m9RFKW0UY!Cw8TY7+Q.html', target='_blank', title='爱车贷-三菱帕杰罗-ASK091') 爱车贷-三菱帕杰罗-ASK091
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m9RFKW0UY!Cw8TY7+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m9RFKW0UY!Cw8TY7+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zNgYfjBEY6Ww8TY68Q.html', target='_blank', title='爱车贷-北京现代悦动-XHA095') 爱车贷-北京现代悦动-XHA095
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zNgYfjBEY6Ww8TY68Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zNgYfjBEY6Ww8TY68Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mNVOLj1CZfCw8TY6+A.html', target='_blank', title='爱车贷-福特蒙迪欧-XAA092') 爱车贷-福特蒙迪欧-XAA092
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mNVOLj1CZfCw8TY6+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mNVOLj1CZfCw8TY6+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m99LeDhEYaSw8TY48Q.html', target='_blank', title='爱车贷-大众高尔夫-QS108') 爱车贷-大众高尔夫-QS108
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m99LeDhEYaSw8TY48Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m99LeDhEYaSw8TY48Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ntRKfj0Vb6ew8TY5+Q.html', target='_blank', title='爱车贷-黄海N2-TS107') 爱车贷-黄海N2-TS107
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ntRKfj0Vb6ew8TY5+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ntRKfj0Vb6ew8TY5+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ntQfKG0SZKew8TY6+Q.html', target='_blank', title='爱车贷-路虎揽胜-ASK096') 爱车贷-路虎揽胜-ASK096
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ntQfKG0SZKew8TY6+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ntQfKG0SZKew8TY6+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kYgZLjFDMqWw8TUz9w.html', target='_blank', title='爱车贷-奥迪A4-YKA085') 爱车贷-奥迪A4-YKA085
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kYgZLjFDMqWw8TUz9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kYgZLjFDMqWw8TUz9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yo9EKTlCZvGw8TY5+A.html', target='_blank', title='爱车贷-哈佛H6-ASA106') 爱车贷-哈佛H6-ASA106
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-yo9EKTlCZvGw8TY5+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yo9EKTlCZvGw8TY5+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nYlPKG1GZKew8TY59Q.html', target='_blank', title='爱车贷-现代伊兰特-ASA098') 爱车贷-现代伊兰特-ASA098
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nYlPKG1GZKew8TY59Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nYlPKG1GZKew8TY59Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nY9JLGoUMqCw8TU89g.html', target='_blank', title='爱车贷-丰田兰德酷路泽-XAA066') 爱车贷-丰田兰德酷路泽-XAA066
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nY9JLGoUMqCw8TU89g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nY9JLGoUMqCw8TU89g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-y9gce2sVZaOw8TY59g.html', target='_blank', title='爱车贷-奥迪A4-QSA102') 爱车贷-奥迪A4-QSA102
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-y9gce2sVZaOw8TY59g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-y9gce2sVZaOw8TY59g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n9tIfG5HNPSw8TY58A.html', target='_blank', title='爱车贷-路虎览胜-HCK100') 爱车贷-路虎览胜-HCK100
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n9tIfG5HNPSw8TY58A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n9tIfG5HNPSw8TY58A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ytpMJGlBZfew8TY58g.html', target='_blank', title='爱车贷-长城风骏3-QSA101') 爱车贷-长城风骏3-QSA101
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ytpMJGlBZfew8TY58g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ytpMJGlBZfew8TY58g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kN5IJT1GZ!aw8TY59A.html', target='_blank', title='爱车贷-日产逍客-XAA097') 爱车贷-日产逍客-XAA097
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kN5IJT1GZ!aw8TY59A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kN5IJT1GZ!aw8TY59A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zdREKmwSZ!Kw8TUy9A.html', target='_blank', title='爱车贷-劳斯莱斯古斯特-SX069') 爱车贷-劳斯莱斯古斯特-SX069
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zdREKmwSZ!Kw8TUy9A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zdREKmwSZ!Kw8TUy9A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-y9xKeGwTN6Ow8TY69g.html', target='_blank', title='爱车贷-力帆320-XLK099') 爱车贷-力帆320-XLK099
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-y9xKeGwTN6Ow8TY69g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-y9xKeGwTN6Ow8TY69g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ntpOJTBDZvGw8TU69Q.html', target='_blank', title='爱车贷-现代ix35-SX051') 爱车贷-现代ix35-SX051
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ntpOJTBDZvGw8TU69Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ntpOJTBDZvGw8TU69Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zN5PeD9FM6Kw8TUy8g.html', target='_blank', title='爱车贷-广汽传祺-SR077') 爱车贷-广汽传祺-SR077
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zN5PeD9FM6Kw8TUy8g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zN5PeD9FM6Kw8TUy8g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mtRMKzxFY!Gw8TY78Q.html', target='_blank', title='爱车贷-现代朗动-ASK079') 爱车贷-现代朗动-ASK079
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mtRMKzxFY!Gw8TY78Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mtRMKzxFY!Gw8TY78Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kNtOfjEUMKSw8TU7+Q.html', target='_blank', title='爱车贷-尼桑逍客-AKK019') 爱车贷-尼桑逍客-AKK019
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kNtOfjEUMKSw8TU7+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kNtOfjEUMKSw8TU7+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n9tKKThJb!Kw8TU88w.html', target='_blank', title='爱车贷-吉普大切诺基-ASA073') 爱车贷-吉普大切诺基-ASA073
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n9tKKThJb!Kw8TU88w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n9tKKThJb!Kw8TU88w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nY9EeW0SZ6Cw8TY79Q.html', target='_blank', title='爱车贷-奔驰C180K-XAA072') 爱车贷-奔驰C180K-XAA072
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nY9EeW0SZ6Cw8TY79Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nY9EeW0SZ6Cw8TY79Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-noweJDBAZ!ew8TY79A.html', target='_blank', title='爱车贷-大众帕萨特-XAA071') 爱车贷-大众帕萨特-XAA071
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-noweJDBAZ!ew8TY79A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-noweJDBAZ!ew8TY79A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kNkfeWxIZqKw8TY78w.html', target='_blank', title='爱车贷-奥迪A6L-SX088') 爱车贷-奥迪A6L-SX088
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kNkfeWxIZqKw8TY78w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kNkfeWxIZqKw8TY78w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kN9JKzlFb!ew8TY7+A.html', target='_blank', title='爱车贷-别克英朗GT-AK070') 爱车贷-别克英朗GT-AK070
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kN9JKzlFb!ew8TY7+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kN9JKzlFb!ew8TY7+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zt0efj5AN6ew8TY78g.html', target='_blank', title='爱车贷-马自达6-SX081') 爱车贷-马自达6-SX081
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zt0efj5AN6ew8TY78g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zt0efj5AN6ew8TY78g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n91Mfj5BYaCw8TUy+Q.html', target='_blank', title='爱车贷-起亚KX3-SR087') 爱车贷-起亚KX3-SR087
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n91Mfj5BYaCw8TUy+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n91Mfj5BYaCw8TUy+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n48YfG0UZfiw8TUy9w.html', target='_blank', title='爱车贷-捷豹XF-SX078') 爱车贷-捷豹XF-SX078
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n48YfG0UZfiw8TUy9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n48YfG0UZfiw8TUy9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nN4cfmxFYaWw8TU8+A.html', target='_blank', title='爱车贷-斯巴鲁森林人-JQA076') 爱车贷-斯巴鲁森林人-JQA076
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nN4cfmxFYaWw8TU8+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nN4cfmxFYaWw8TU8+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kNpPLzpEMvmw8TU+9g.html', target='_blank', title='爱车贷-丰田RAV4-TS062') 爱车贷-丰田RAV4-TS062
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kNpPLzpEMvmw8TU+9g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kNpPLzpEMvmw8TU+9g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mtxPfDBGbqKw8TU89Q.html', target='_blank', title='爱车贷-雪佛兰科帕奇-CZ084') 爱车贷-雪佛兰科帕奇-CZ084
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mtxPfDBGbqKw8TU89Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mtxPfDBGbqKw8TU89Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ytxJJG0QbqCw8TU8+Q.html', target='_blank', title='爱车贷-别克昂科雷-XAK065') 爱车贷-别克昂科雷-XAK065
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ytxJJG0QbqCw8TU8+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ytxJJG0QbqCw8TU8+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yttFezETbvKw8TU89w.html', target='_blank', title='爱车贷-起亚凯尊-XA075') 爱车贷-起亚凯尊-XA075
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-yttFezETbvKw8TU89w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yttFezETbvKw8TU89w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n9xLJT5BM!Ow8TU78Q.html', target='_blank', title='爱车贷-丰田凯美瑞-SX037') 爱车贷-丰田凯美瑞-SX037
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n9xLJT5BM!Ow8TU78Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n9xLJT5BM!Ow8TU78Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zItNeT0SZ!Ow8TQy9w.html', target='_blank', title='爱车贷-马自达阿特兹-XTA056') 爱车贷-马自达阿特兹-XTA056
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zItNeT0SZ!Ow8TQy9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zItNeT0SZ!Ow8TQy9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mdpKfDEQZ6Sw8TU78A.html', target='_blank', title='爱车贷-本田思威-SX038') 爱车贷-本田思威-SX038
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mdpKfDEQZ6Sw8TU78A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mdpKfDEQZ6Sw8TU78A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yowfJGxGN!ew8TQ7+A.html', target='_blank', title='爱车贷-扬子牌货车-XA005') 爱车贷-扬子牌货车-XA005
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-yowfJGxGN!ew8TQ7+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yowfJGxGN!ew8TQ7+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nIkbLjhFbvmw8TQy8g.html', target='_blank', title='爱车贷-宝马740Li-WQK023') 爱车贷-宝马740Li-WQK023
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nIkbLjhFbvmw8TQy8g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nIkbLjhFbvmw8TQy8g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-9.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mY8ZJToSZPiw8TUz8g.html', target='_blank', title='爱房贷-北京个人房屋周转贷FDTX160902-2') 爱房贷-北京个人房屋周转贷FDTX160902-2
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span 产品金额为500万元，截止日期为2016年10月31日。借款人的信用良好，本次借款在其家人知晓并同意.....
+									a(href='chanpin.html#-mY8ZJToSZPiw8TUz8g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mY8ZJToSZPiw8TUz8g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nY5OJW1HZPWw8TU+8A.html', target='_blank', title='爱车贷-斯柯达明锐-XLA074') 爱车贷-斯柯达明锐-XLA074
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nY5OJW1HZPWw8TU+8A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nY5OJW1HZPWw8TU+8A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zYtELzEVN!ew8TU98w.html', target='_blank', title='爱车贷-本田奥德赛-QS083') 爱车贷-本田奥德赛-QS083
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zYtELzEVN!ew8TU98w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zYtELzEVN!ew8TU98w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ythLeTEVMPew8TU59g.html', target='_blank', title='爱车贷-纳智捷优6-XAA063') 爱车贷-纳智捷优6-XAA063
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ythLeTEVMPew8TU59g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ythLeTEVMPew8TU59g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nNRLKDFDZaSw8TQ99g.html', target='_blank', title='爱车贷-宝马750Li-TS009') 爱车贷-宝马750Li-TS009
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nNRLKDFDZaSw8TQ99g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nNRLKDFDZaSw8TQ99g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mYgZLmwVMqKw8TU68A.html', target='_blank', title='爱车贷-丰田汉兰达-SX036') 爱车贷-丰田汉兰达-SX036
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mYgZLmwVMqKw8TU68A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mYgZLmwVMqKw8TU68A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m9xOKj1AZaKw8TU48g.html', target='_blank', title='爱车贷-保时捷帕纳美拉-XH052') 爱车贷-保时捷帕纳美拉-XH052
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m9xOKj1AZaKw8TU48g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m9xOKj1AZaKw8TU48g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zogeKj9JYvWw8TU4+Q.html', target='_blank', title='爱车贷-宝马730li-WQ060') 爱车贷-宝马730li-WQ060
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zogeKj9JYvWw8TU4+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zogeKj9JYvWw8TU4+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ydtJezxAYfSw8TU+8Q.html', target='_blank', title='爱车贷-宝马525li-WQ061') 爱车贷-宝马525li-WQ061
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ydtJezxAYfSw8TU+8Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ydtJezxAYfSw8TU+8Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mY5Lez9HN6Ww8TU98Q.html', target='_blank', title='爱车贷-比亚迪G6-AK054-F') 爱车贷-比亚迪G6-AK054-F
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mY5Lez9HN6Ww8TU98Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mY5Lez9HN6Ww8TU98Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zYtILj0QM6Ww8TU78g.html', target='_blank', title='爱车贷-别克君越-XTA057') 爱车贷-别克君越-XTA057
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zYtILj0QM6Ww8TU78g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zYtILj0QM6Ww8TU78g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kIlNJWtBNPaw8TU+9Q.html', target='_blank', title='爱车贷-现代瑞纳-XH053') 爱车贷-现代瑞纳-XH053
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kIlNJWtBNPaw8TU+9Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kIlNJWtBNPaw8TU+9Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zYlFJGxHN!Cw8TU69A.html', target='_blank', title='爱车贷-丰田雷凌-SX043') 爱车贷-丰田雷凌-SX043
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zYlFJGxHN!Cw8TU69A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zYlFJGxHN!Cw8TU69A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kYsfLzlEYfCw8TU!9w.html', target='_blank', title='爱车贷-现代朗动-ASK046') 爱车贷-现代朗动-ASK046
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kYsfLzlEYfCw8TU!9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kYsfLzlEYfCw8TU!9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kIhKfzpCMKKw8TU+9A.html', target='_blank', title='爱车贷-北京现代ix35-HLK042-F') 爱车贷-北京现代ix35-HLK042-F
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kIhKfzpCMKKw8TU+9A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kIhKfzpCMKKw8TU+9A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zohMfzAVZKKw8TU!9g.html', target='_blank', title='爱车贷-奥迪A4L-AKK050') 爱车贷-奥迪A4L-AKK050
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zohMfzAVZKKw8TU!9g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zohMfzAVZKKw8TU!9g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mdUZfDgTZaSw8TU68Q.html', target='_blank', title='爱车贷-奔驰S320-SX041') 爱车贷-奔驰S320-SX041
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mdUZfDgTZaSw8TU68Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mdUZfDgTZaSw8TU68Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m9tPeTlHZ6Ww8TQy8w.html', target='_blank', title='爱车贷-本田飞度-XA018') 爱车贷-本田飞度-XA018
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m9tPeTlHZ6Ww8TQy8w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m9tPeTlHZ6Ww8TQy8w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-15.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zNQfLW0XMqew8TU79A.html', target='_blank', title='爱车贷-奥迪A8L-JX001') 爱车贷-奥迪A8L-JX001
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zNQfLW0XMqew8TU79A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zNQfLW0XMqew8TU79A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ndVLLzpAZ!ew8TQz+A.html', target='_blank', title='爱车贷-奔腾B90-XA026') 爱车贷-奔腾B90-XA026
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ndVLLzpAZ!ew8TQz+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ndVLLzpAZ!ew8TQz+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-9.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mNpPKjlHZ!mw8TQy+A.html', target='_blank', title='爱房贷-北京个人房产周转贷款FDYDH160903') 爱房贷-北京个人房产周转贷款FDYDH160903
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span 产品金额为200万元，截止日期为2016年11月30日。借款人的信用良好，本次借款在其家人知晓并同意.....
+									a(href='chanpin.html#-mNpPKjlHZ!mw8TQy+A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mNpPKjlHZ!mw8TQy+A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yowbeGsTNfWw8TQz9Q.html', target='_blank', title='爱车贷-福特翼虎-AKK021') 爱车贷-福特翼虎-AKK021
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-yowbeGsTNfWw8TQz9Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yowbeGsTNfWw8TQz9Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mIgbfDAXZaOw8TQ49w.html', target='_blank', title='爱车贷-哈弗H2-TS007') 爱车贷-哈弗H2-TS007
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mIgbfDAXZaOw8TQ49w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mIgbfDAXZaOw8TQ49w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-11.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yttLJD0QZPWw8TQ+9Q.html', target='_blank', title='致胜地产长租公寓项目—装修') 致胜地产长租公寓项目—装修
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span
+										| 1.此次致胜长租公寓项目借款资金用于支付保利国际15套，外国3套房屋装修；
+										| 2.此笔借款的还款来源是.....
+									a(href='chanpin.html#-yttLJD0QZPWw8TQ+9Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息2%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 12个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yttLJD0QZPWw8TQ+9Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zotEeTsVN6Ww8TQy8A.html', target='_blank', title='爱车贷-丰田普拉多-SZ024') 爱车贷-丰田普拉多-SZ024
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zotEeTsVN6Ww8TQy8A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zotEeTsVN6Ww8TQy8A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ydVOJDpGYqew8TQ59g.html', target='_blank', title='爱车贷-大众帕萨特-XA006') 爱车贷-大众帕萨特-XA006
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ydVOJDpGYqew8TQ59g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ydVOJDpGYqew8TQ59g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kNoZLW0VZfSw8TQz8Q.html', target='_blank', title='爱车贷-本田雅阁-CC014') 爱车贷-本田雅阁-CC014
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kNoZLW0VZfSw8TQz8Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kNoZLW0VZfSw8TQz8Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-m4seLD9HYvCw8TQ89w.html', target='_blank', title='爱车贷-克莱斯勒大捷龙-QS013') 爱车贷-克莱斯勒大捷龙-QS013
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-m4seLD9HYvCw8TQ89w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-m4seLD9HYvCw8TQ89w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mYtELW0VYfiw8TQz+Q.html', target='_blank', title='爱车贷-雷沃牌轮胎式装载机-AKK012') 爱车贷-雷沃牌轮胎式装载机-AKK012
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mYtELW0VYfiw8TQz+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mYtELW0VYfiw8TQz+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nNhEez5DNfSw8TMz8Q.html', target='_blank', title='爱车贷-本田雅阁-ZB022') 爱车贷-本田雅阁-ZB022
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nNhEez5DNfSw8TMz8Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nNhEez5DNfSw8TMz8Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kdRLLDAUZfaw8TQz9g.html', target='_blank', title='爱车贷-大众途观-ASK011') 爱车贷-大众途观-ASK011
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kdRLLDAUZfaw8TQz9g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kdRLLDAUZfaw8TQz9g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n4seLmkSYvmw8TQ!9A.html', target='_blank', title='爱车贷-奥迪Q5-SX1176') 爱车贷-奥迪Q5-SX1176
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n4seLmkSYvmw8TQ!9A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n4seLmkSYvmw8TQ!9A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n95NKmtBYPSw8TQ99Q.html', target='_blank', title='爱车贷-路虎发现4-WQK1154') 爱车贷-路虎发现4-WQK1154
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n95NKmtBYPSw8TQ99Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n95NKmtBYPSw8TQ99Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zthPKz9EbvSw8TQ!8w.html', target='_blank', title='爱车贷-奥迪Q5-SX1173') 爱车贷-奥迪Q5-SX1173
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zthPKz9EbvSw8TQ!8w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zthPKz9EbvSw8TQ!8w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-0.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n45FKDEVbvCw8Dk68g.html', target='_blank', title='汽车以租代购项目HL20160815') 汽车以租代购项目HL20160815
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span 大连海蓝汽车租赁服务有限公司，是大连一家专业化的汽车销售金融服务企业。面对金融企业的迅猛发展，该公司.....
+									a(href='chanpin.html#-n45FKDEVbvCw8Dk68g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息2%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 12个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n45FKDEVbvCw8Dk68g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-15.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zNROKG1DMPCw8TQ59A.html', target='_blank', title='爱车贷-北京现代名图-JRW036') 爱车贷-北京现代名图-JRW036
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zNROKG1DMPCw8TQ59A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zNROKG1DMPCw8TQ59A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-11.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ztQcKTFEYPew8DQz+Q.html', target='_blank', title='汽车以租代购项目LDFC160810') 汽车以租代购项目LDFC160810
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span 松原市轮动方程汽车租赁有限公司，是松原一家专业化的汽车销售金融服务企业。面对金融企业的迅猛发展，该公.....
+									a(href='chanpin.html#-ztQcKTFEYPew8DQz+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息2%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 12个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ztQcKTFEYPew8DQz+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zt4Zf2oSZKew8TQz9A.html', target='_blank', title='爱车贷-长城哈弗H6-HLK1168') 爱车贷-长城哈弗H6-HLK1168
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zt4Zf2oSZKew8TQz9A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zt4Zf2oSZKew8TQz9A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-0.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n94eeDhCMvGw8TQ7+Q.html', target='_blank', title='汽车以租代购项目HL20160820') 汽车以租代购项目HL20160820
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span 大连海蓝汽车租赁服务有限公司，是大连一家专业化的汽车销售金融服务企业。面对金融企业的迅猛发展，该公司.....
+									a(href='chanpin.html#-n94eeDhCMvGw8TQ7+Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息2%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 12个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n94eeDhCMvGw8TQ7+Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zYlOe2xJZfWw8TQ89Q.html', target='_blank', title='爱车贷-大众帕萨特-HLK1185') 爱车贷-大众帕萨特-HLK1185
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zYlOe2xJZfWw8TQ89Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zYlOe2xJZfWw8TQ89Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ytpEe25IZPWw8TMz8g.html', target='_blank', title='爱车贷-北京现代IX35-ZB1180') 爱车贷-北京现代IX35-ZB1180
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ytpEe25IZPWw8TMz8g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ytpEe25IZPWw8TMz8g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-zYsbeThHYKCw8TQ48Q.html', target='_blank', title='爱车贷-奥迪A6-SX1175') 爱车贷-奥迪A6-SX1175
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-zYsbeThHYKCw8TQ48Q.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-zYsbeThHYKCw8TQ48Q.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-yt5NK21DYKOw8TMy8w.html', target='_blank', title='爱车贷-北京现代IX35-ZB1156') 爱车贷-北京现代IX35-ZB1156
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-yt5NK21DYKOw8TMy8w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-yt5NK21DYKOw8TMy8w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-n9kcf24SZfiw8TMz8A.html', target='_blank', title='爱车贷-众泰Z500-ZB1162') 爱车贷-众泰Z500-ZB1162
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-n9kcf24SZfiw8TMz8A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-n9kcf24SZfiw8TMz8A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-ntpJLG5Gb!mw8TQ79g.html', target='_blank', title='爱车贷-长城H6-SX1174') 爱车贷-长城H6-SX1174
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-ntpJLG5Gb!mw8TQ79g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-ntpJLG5Gb!mw8TQ79g.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-kdVOKTgUY!ew8TQ99w.html', target='_blank', title='爱车贷-路虎览胜-HCK1161') 爱车贷-路虎览胜-HCK1161
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-kdVOKTgUY!ew8TQ99w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-kdVOKTgUY!ew8TQ99w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mo4ZLzlEbvaw8TMy9w.html', target='_blank', title='爱车贷-起亚福瑞迪-WQ1155') 爱车贷-起亚福瑞迪-WQ1155
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mo4ZLzlEbvaw8TMy9w.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mo4ZLzlEbvaw8TMy9w.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-y4tEL20UN!ew8TQ++A.html', target='_blank', title='爱车贷-奥迪S8-HLK1160') 爱车贷-奥迪S8-HLK1160
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-y4tEL20UN!ew8TQ++A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 3个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-y4tEL20UN!ew8TQ++A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-nt8ZK2tJYaWw8TQ79A.html', target='_blank', title='爱车贷-特斯拉P85-HS1163') 爱车贷-特斯拉P85-HS1163
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-nt8ZK2tJYaWw8TQ79A.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 8%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 1个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-nt8ZK2tJYaWw8TQ79A.html', target='_blank') 还款中
+						li.m2-indexItem.m2-indexItem-ed.borrow-cate-5.borrow
+							h3.m2-indexItem-head
+								a(href='chanpin.html#-mYlELzlFYaWw8TQ68g.html', target='_blank', title='爱车贷-丰田普拉多-SX1172') 爱车贷-丰田普拉多-SX1172
+							.m2-indItemdetials
+								h4
+									i
+									| 项目详情
+								.m2-indItemdet(style='height: 99px;')
+									span “爱车贷-汽车质押贷款”是爱钱帮在汽车金融垂直领域的新产品，联手线下专业车贷团队，为投资人提供期限1.....
+									a(href='chanpin.html#-mYlELzlFYaWw8TQ68g.html', target='_blank') 详情
+							.m2-indItemnum
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span.huodongjiaxi
+											| 9%+1%
+										span.jiaxishow(style='color:white;margin-left:26px;')
+											| 活动加息1%
+									p.m2-indItemnum-nor 预期年化收益率
+									b
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 2个月
+									p.m2-indItemnum-nor 项目期限
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit 正在募集：
+								b
+									i(style='width: 100%;')
+								span.m2-indItemprogress-num 100%
+							.m2-indItembtn
+								a.m2-indItembtn-ed(href='chanpin.html#-mYlELzlFYaWw8TQ68g.html', target='_blank') 还款中
+				
+						li.trans.m2-indexItemtra.m2-indexItemtra-ing
+							h3.m2-indexItem-head
+								a(href='chanpin.html#nY9OLTtDZ!ew8TAz8Q.html', target='_blank', title='娱乐帮-电视剧《惊天岳雷》投资项目-2') 娱乐帮-电视剧《惊天岳雷》投资项目-2
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit(style='margin-right:10px;') 承接中：
+								b
+									i(style='width:0%;')
+								span.m2-indItemprogress-num 0%
+							.m2-indItemtra-numLeft
+								span.m2-indTranum-tit 剩余金额：
+								span.m2-indTranum-num 800元
+							.m2-indItemnum(style='padding:20px 0px 0 0px;')
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span 11.34
+										| %
+										// <i class="m2-indTraicon-down"></i>
+									p.m2-indItemnum-nor
+										| 原标年化:
+										span.huodongjiaxi
+											| 10%+2.5%
+										span.jiaxishow(style='margin-top:0;margin-left:50px;')
+											| 活动加息2.5%
+									b(style='right:-3px;')
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 351天
+									p.m2-indItemnum-nor
+										| 付息日：
+										span
+											| 每月22日
+							.m2-indTralog
+								p
+									| 账户余额：
+									a(href='login.html#login_callback=index', target='_blank') 登录
+									| 后可查看
+							.m2-indTrabtn
+								i.m2-indTrabtn-fin
+						li.trans.m2-indexItemtra.m2-indexItemtra-ing
+							h3.m2-indexItem-head
+								a(href='chanpin.html#ztwbJGxEbqW49zk9.html', target='_blank', title='易安家长租公寓项目20160801-1') 易安家长租公寓项目20160801-1
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit(style='margin-right:10px;') 承接中：
+								b
+									i(style='width:0%;')
+								span.m2-indItemprogress-num 0%
+							.m2-indItemtra-numLeft
+								span.m2-indTranum-tit 剩余金额：
+								span.m2-indTranum-num 100元
+							.m2-indItemnum(style='padding:20px 0px 0 0px;')
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span 11.15
+										| %
+										// <i class="m2-indTraicon-down"></i>
+									p.m2-indItemnum-nor
+										| 原标年化:
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='margin-top:0;margin-left:50px;')
+											| 活动加息2%
+									b(style='right:-3px;')
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 331天
+									p.m2-indItemnum-nor
+										| 付息日：
+										span
+											| 每月2日
+							.m2-indTralog
+								p
+									| 账户余额：
+									a(href='login.html#login_callback=index', target='_blank') 登录
+									| 后可查看
+							.m2-indTrabtn
+								i.m2-indTrabtn-fin
+					
+						li.trans.m2-indexItemtra.m2-indexItemtra-ing
+							h3.m2-indexItem-head
+								a(href='chanpin.html#kIsbJTkQMqe58TY4.html', target='_blank', title='娱乐帮-电视剧《海上嫁女记》投资项目-1') 娱乐帮-电视剧《海上嫁女记》投资项目-1
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit(style='margin-right:10px;') 承接中：
+								b
+									i(style='width:5.68%;')
+								span.m2-indItemprogress-num 5.68%
+							.m2-indItemtra-numLeft
+								span.m2-indTranum-tit 剩余金额：
+								span.m2-indTranum-num 34900元
+							.m2-indItemnum(style='padding:20px 0px 0 0px;')
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span 10.89
+										| %
+										// <i class="m2-indTraicon-down"></i>
+									p.m2-indItemnum-nor
+										| 原标年化:
+										span.huodongjiaxi
+											| 10.5%+3%
+										span.jiaxishow(style='margin-top:0;margin-left:50px;')
+											| 活动加息3%
+									b(style='right:-3px;')
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 296天
+									p.m2-indItemnum-nor
+										| 付息日：
+										span
+											| 每月28日
+							.m2-indTralog
+								p
+									| 账户余额：
+									a(href='login.html#login_callback=index', target='_blank') 登录
+									| 后可查看
+							.m2-indTrabtn
+								i.m2-indTrabtn-fin
+						
+						li.trans.m2-indexItemtra.m2-indexItemtra-ing
+							h3.m2-indexItem-head
+								a(href='chanpin.html#n9VEfzhBY!mw8TA88A.html', target='_blank', title='娱乐帮-电视剧《惊天岳雷》投资项目-1') 娱乐帮-电视剧《惊天岳雷》投资项目-1
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit(style='margin-right:10px;') 承接中：
+								b
+									i(style='width:0%;')
+								span.m2-indItemprogress-num 0%
+							.m2-indItemtra-numLeft
+								span.m2-indTranum-tit 剩余金额：
+								span.m2-indTranum-num 500元
+							.m2-indItemnum(style='padding:20px 0px 0 0px;')
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span 10.84
+										| %
+										// <i class="m2-indTraicon-down"></i>
+									p.m2-indItemnum-nor
+										| 原标年化:
+										span.huodongjiaxi
+											| 10%+2.5%
+										span.jiaxishow(style='margin-top:0;margin-left:50px;')
+											| 活动加息2.5%
+									b(style='right:-3px;')
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 351天
+									p.m2-indItemnum-nor
+										| 付息日：
+										span
+											| 每月22日
+							.m2-indTralog
+								p
+									| 账户余额：
+									a(href='login.html#login_callback=index', target='_blank') 登录
+									| 后可查看
+							.m2-indTrabtn
+					
+						li.trans.m2-indexItemtra.m2-indexItemtra-ing
+							h3.m2-indexItem-head
+								a(href='chanpin.html#yttLJD0QZPWw8TQ+9Q.html', target='_blank', title='致胜地产长租公寓项目—装修') 致胜地产长租公寓项目—装修
+							.m2-indItemprogress
+								span.m2-indItemprogress-tit(style='margin-right:10px;') 承接中：
+								b
+									i(style='width:0%;')
+								span.m2-indItemprogress-num 0%
+							.m2-indItemtra-numLeft
+								span.m2-indTranum-tit 剩余金额：
+								span.m2-indTranum-num 20000元
+							.m2-indItemnum(style='padding:20px 0px 0 0px;')
+								.m2-indItemnum-year
+									p.m2-indItemnum-big
+										span 10.75
+										| %
+										// <i class="m2-indTraicon-down"></i>
+									p.m2-indItemnum-nor
+										| 原标年化:
+										span.huodongjiaxi
+											| 10%+2%
+										span.jiaxishow(style='margin-top:0;margin-left:50px;')
+											| 活动加息2%
+									b(style='right:-3px;')
+								.m2-indItemnum-time
+									p.m2-indItemnum-big 361天
+									p.m2-indItemnum-nor
+										| 付息日：
+										span
+											| 每月1日
+							.m2-indTralog
+								p
+									| 账户余额：
+									a(href='login.html#login_callback=index', target='_blank') 登录
+									| 后可查看
+							.m2-indTrabtn
+								i.m2-indTrabtn-fin
+			.m2-indexNewstable
+				.m2-indNewstab
+					ul.m2-indNewstablist
+						li.m2-indNewtab-sel
+							span 媒体报道
+							i
+						li.m2-indNewtab-unsel
+							span 行业动态
+							i
+						li.m2-indNewtab-unsel
+							span 网站公告
+							i
+						li.m2-indNewtab-unsel
+							span 项目公告
+							i
+						li.m2-indNewtab-unsel
+							span 还款公告
+							i
+						li.m2-indNewtab-unsel
+							span 爱钱帮动态
+							i
+						li.m2-indNewtab-unsel
+							span 理财技巧
+							i
+					a#article-more.m2-indNewstab-link(href='meitibaodao_aiqianbang_licaiwang.html', target='_blank') 更多»
+				.indNewsmain-con
+					ul#newslist1.indNewslist-pic.newslist
+						li
+							.indNewslist-picLef
+								img(src='/th/images/home/20151229133918775.png', alt='没有信息共享机制，网贷凭什么限额？')
+							.indNewslist-picRig
+								h4
+									a(href='dashiji_show.html#16027.html', target='_blank', title='没有信息共享机制，网贷凭什么限额？') 没有信息共享机制，网贷凭什么限额？
+								.indNewslist-picMain
+									span
+										| 今天下午，银监会、工信部、公安部、网信办四部委联合发布《网络借贷信息中介机构业务活动管理暂行办法》。此前备受市场关注的借款设上限在发布会上被确认。 银监会普惠金融部主任李均锋
+										| ........
+									a(href='dashiji_show.html#16027.html', target='_blank') 更多
+						li
+							.indNewslist-picLef
+								img(src='/th/images/home/20151130140815865.png', alt='网贷管理办法明确13项禁止性行为')
+							.indNewslist-picRig
+								h4
+									a(href='dashiji_show.html#16026.html', target='_blank', title='网贷管理办法明确13项禁止性行为') 网贷管理办法明确13项禁止性行为
+								.indNewslist-picMain
+									span
+										| 24日，银监会会同工信部、公安部、国家互联网信息办公室等部门研究起草的《网络借贷信息中介机构业务活动管理暂行办法》（简称《办法》）发布。《办法》强调了从业机构作为信息中介的
+										| ........
+									a(href='dashiji_show.html#16026.html', target='_blank') 更多
+					ul#newslist2.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15857.html', target='_blank', title='资金存管是P2P投资理财未来发展的核心') 1）资金存管是P2P投资理财未来发展的核心
+							b new
+							span.m2-indNews-psgTim 2016-05-05
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15854.html', target='_blank', title='监管政策落地预示着P2P理财平台将获得重生') 2）监管政策落地预示着P2P理财平台将获得重生
+							b new
+							span.m2-indNews-psgTim 2016-05-05
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15853.html', target='_blank', title='网络投资理财平台须有“担当”') 3）网络投资理财平台须有“担当”
+							b new
+							span.m2-indNews-psgTim 2016-05-05
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15852.html', target='_blank', title='监管来袭很有必要选对网络投资理财平台') 4）监管来袭很有必要选对网络投资理财平台
+							span.m2-indNews-psgTim 2016-05-05
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15851.html', target='_blank', title='从规范发展的角度看网络投资理财平台') 5）从规范发展的角度看网络投资理财平台
+							span.m2-indNews-psgTim 2016-05-05
+					ul#newslist3.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16013.html', target='_blank', title='【平台公告】关于部分银行升级“快捷充值”功能的公告') 1）【平台公告】关于部分银行升级“快捷充值”功能的公告
+							b new
+							span.m2-indNews-psgTim 2016-08-24
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16009.html', target='_blank', title='爱钱帮CEO王吉涛出席全球互联网创新金融峰会') 2）爱钱帮CEO王吉涛出席全球互联网创新金融峰会
+							b new
+							span.m2-indNews-psgTim 2016-08-19
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16005.html', target='_blank', title='【平台公告】关于网络优化的公告') 3）【平台公告】关于网络优化的公告
+							b new
+							span.m2-indNews-psgTim 2016-08-18
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15987.html', target='_blank', title='【平台公告】爱钱帮会员商城试运营公告') 4）【平台公告】爱钱帮会员商城试运营公告
+							span.m2-indNews-psgTim 2016-08-05
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15986.html', target='_blank', title='【平台公告】爱钱帮7月运营报告') 5）【平台公告】爱钱帮7月运营报告
+							span.m2-indNews-psgTim 2016-08-04
+					ul#newslist4.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15601.html', target='_blank', title='【项目公告】易安家长租公寓项目温馨继续') 1）【项目公告】易安家长租公寓项目温馨继续
+							b new
+							span.m2-indNews-psgTim 2016-02-23
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15599.html', target='_blank', title='【项目公告】娱乐帮-电影《你好，疯子！》投资项目') 2）【项目公告】娱乐帮-电影《你好，疯子！》投资项目
+							b new
+							span.m2-indNews-psgTim 2016-02-20
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15572.html', target='_blank', title='【项目公告】“世果汇”—越南青芒果直采【投资满额送青…') 3）【项目公告】“世果汇”—越南青芒果直采【投资满额送青…
+							b new
+							span.m2-indNews-psgTim 2016-02-01
+					ul#newslist5.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16028.html', target='_blank', title='【还款公告】2016年9月2日爱钱帮投资理财项目还本…') 1）【还款公告】2016年9月2日爱钱帮投资理财项目还本…
+							b new
+							span.m2-indNews-psgTim 2016-09-02
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16025.html', target='_blank', title='【还款公告】2016年9月1日爱钱帮投资理财项目还本…') 2）【还款公告】2016年9月1日爱钱帮投资理财项目还本…
+							b new
+							span.m2-indNews-psgTim 2016-09-01
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16024.html', target='_blank', title='【还款公告】2016年8月31日爱钱帮投资理财项目还…') 3）【还款公告】2016年8月31日爱钱帮投资理财项目还…
+							b new
+							span.m2-indNews-psgTim 2016-08-31
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16022.html', target='_blank', title='【还款公告】2016年8月30日爱钱帮投资理财项目还…') 4）【还款公告】2016年8月30日爱钱帮投资理财项目还…
+							span.m2-indNews-psgTim 2016-08-30
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#16019.html', target='_blank', title='【还款公告】2016年8月29日爱钱帮投资理财项目还…') 5）【还款公告】2016年8月29日爱钱帮投资理财项目还…
+							span.m2-indNews-psgTim 2016-08-29
+					ul#newslist6.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15532.html', target='_blank', title='爱钱帮&i烘焙之爱上CUP CAKE')
+								| 1）爱钱帮&i烘焙之爱上CUP
+								| CAKE
+							b new
+							span.m2-indNews-psgTim 2016-01-18
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15470.html', target='_blank', title='爱钱帮志愿者进社区普及防范非法集资知识') 2）爱钱帮志愿者进社区普及防范非法集资知识
+							b new
+							span.m2-indNews-psgTim 2015-12-10
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15421.html', target='_blank', title='爱钱帮联姻南昌银行  开创消费金融新体验')
+								| 3）爱钱帮联姻南昌银行
+								| 开创消费金融新体验
+							b new
+							span.m2-indNews-psgTim 2015-10-29
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15354.html', target='_blank', title='爱钱帮单月破亿 支持垂直马拉松')
+								| 4）爱钱帮单月破亿
+								| 支持垂直马拉松
+							span.m2-indNews-psgTim 2015-09-07
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15346.html', target='_blank', title='爱钱帮支持高等教育 人民大学MBA开学典礼隆重举行')
+								| 5）爱钱帮支持高等教育
+								| 人民大学MBA开学典礼隆重举行
+							span.m2-indNews-psgTim 2015-08-31
+					ul#newslist7.indNewslist-psg.newslist(style='display:none;')
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15867.html', target='_blank', title='逐渐规范的时代，要找寻优质P2P投资理财平台') 1）逐渐规范的时代，要找寻优质P2P投资理财平台
+							b new
+							span.m2-indNews-psgTim 2016-05-09
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15866.html', target='_blank', title='P2P投资理财，这五种心态绝对不能有') 2）P2P投资理财，这五种心态绝对不能有
+							b new
+							span.m2-indNews-psgTim 2016-05-09
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15865.html', target='_blank', title='如果还有梦，就从P2P投资理财开始吧') 3）如果还有梦，就从P2P投资理财开始吧
+							b new
+							span.m2-indNews-psgTim 2016-05-09
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15864.html', target='_blank', title='要学会为P2P投资理财制定计划') 4）要学会为P2P投资理财制定计划
+							span.m2-indNews-psgTim 2016-05-09
+						li
+							a.m2-indNewslist-psgNew(href='dashiji_show.html#15863.html', target='_blank', title='优秀的P2P投资理财者如何选择标的') 5）优秀的P2P投资理财者如何选择标的
+							span.m2-indNews-psgTim 2016-05-09
+			.m2-indexVodbox
+				h2.m2-indVodhead
+					i
+					span 精彩尽在爱钱帮
+					a(href='meitibaodao_aiqianbang_licaiwang.html', target='_blank') 查看全部
+				.m2-indexVod-border
+					.m2-indexVod-con
+						.m2-indexVodbtn-prev
+						.m2-indexVodbtn-next
+						.m2-indVodmain
+							ul.m2-indVodlist
+								li(data-vedio='/th/images/home/12.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 舌尖上的金融
+									img(src='/th/images/home/vedio12.jpg', alt='舌尖上的金融')
+									i
+								li(data-vedio='/th/images/home/10.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 金融革命的萌芽
+									img(src='/th/images/home/vedio10.jpg', alt='金融革命的萌芽')
+									i
+								li(data-vedio='/th/images/home/11.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 几招搞定P2P网贷投资
+									img(src='/th/images/home/vedio11.jpg', alt='几招搞定P2P网贷投资')
+									i
+								li(data-vedio='/th/images/home/9.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot P2P网贷 经济转型下的投资新契机
+									img(src='/th/images/home/vedio9.jpg', alt='P2P网贷 经济转型下的投资新契机')
+									i
+								li(data-vedio='/th/images/home/8.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 如何成为专业网贷投资人
+									img(src='/th/images/home/vedio8.jpg', alt='如何成为专业网贷投资人')
+									i
+								li(data-vedio='/th/images/home/1.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 中国P2P网贷特点与风险控制
+									img(src='/th/images/home/vedio1.jpg', alt='中国P2P网贷特点与风险控制')
+									i
+								li(data-vedio='/th/images/home/6.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 金融行业的新革命 P2P网贷
+									img(src='/th/images/home/vedio6.jpg', alt='金融行业的新革命 P2P网贷')
+									i
+								li(data-vedio='/th/images/home/2.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 中国P2P网贷监管与投资人利益保护
+									img(src='/th/images/home/vedio2.jpg', alt='中国P2P网贷监管与投资人利益保护')
+									i
+								li(data-vedio='/th/images/home/3.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 爱钱帮访谈之P2P
+									img(src='/th/images/home/vedio3.jpg', alt='爱钱帮访谈之P2P')
+									i
+								li(data-vedio='/th/images/home/4.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot 如何选择P2P平台
+									img(src='/th/images/home/vedio4.jpg', alt='如何选择P2P平台')
+									i
+								li(data-vedio='/th/images/home/5.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot CCTV2特别报道爱钱帮
+									img(src='/th/images/home/vedio5.jpg', alt='CCTV2特别报道爱钱帮')
+									i
+								li(data-vedio='/th/images/home/7.mp4')
+									.m2-indVodlist-bg
+									.m2-indVodlist-bot CCTV2特别报道爱钱帮
+									img(src='/th/images/home/vedio7.jpg', alt='CCTV2特别报道爱钱帮')
+									i
+			.m2-indexCooperation
+			.m2-indCooorg
+				h2
+					| 实力合作机构
+				ul
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512110603864.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111038163.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/2016051211111329.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111134837.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111157415.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/2016051211121652.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111336923.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111356562.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111411694.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111439851.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160512111459408.png', alt='')
+					li
+						a(href='', target='_blank')
+							img(src='/th/images/home/20160616194004859.png', alt='')
+			.m2-indCootip
+				h2(style='border-bottom-width: 0px;')
+				.m2-indCootip-box
+					.m2-indCootip-lef
+						
+					.m2-indCootip-rig
+
+
+
+
+	

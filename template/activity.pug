@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	include lib/header
+	.m2-actCenMain
+		.m2-actCen-con
+			h2
+				i
+				| 活动中心
+			ul#activityul
+			#loadmore.m2-actMore(style='cursor: pointer')
+				i.m2-actItem-cornerMore
+				i.m2-actItem-circle
+				span#loadmoretext(style='color:#0996cc;') 加载更多

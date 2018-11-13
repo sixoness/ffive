@@ -1,0 +1,331 @@
+extends layout
+
+block content
+	include lib/header
+	.homebody
+		.m2-investBread
+			.m2-investBreadbox
+				i.m2-investBreadicon
+				span.m2-invBre-fat
+					a(href='index.html') 首页 >
+				span.m2-invBre-fat
+					a(href='touzi_licai_chanpin.html') 我要投资 >
+				a.m2-invBre-cur(href='touzi_licai_chanpin.html') 项目直投
+		.m2-invTable-con
+			ul.m2-invTablelist
+				li.m2-invTab-sel
+					span(onclick="window.location.href='/touzi_licai_chanpin.html'") 项目直投
+					i
+				li.m2-invTab-unsel
+					span(onclick="window.location.href='/wangshang_licai_chanpin.html'") 债权转让
+					i
+				li.m2-invTab-unsel
+					span(onclick="window.location.href='/duanqi_licai_chanpin.html'") 爱车贷
+					i
+				li.m2-invTab-unsel
+					span(onclick="window.location.href='/aifangdai_licai_chanpin.html'") 爱房贷
+					i
+				li.m2-invTab-unsel
+					span(onclick="window.location.href='/consumer_finance_chanpin.html'") 消费金融
+					i
+				li.m2-invTab-unsel
+					span(onclick="window.location.href='/aigongyi_licai_chanpin.html'") 爱公益
+					i
+		.m2-invSearch
+			.m2-invSearch-con
+				i.m2-invSea-arrUp
+			.m2-invSearchbox(style='display: none;')
+				ul#search_borrow_interest_rate.m2-invSea-ben
+					li.m2-invSea-tit
+						span 收  益  率
+					li.m2-invSea-sel.m2-invSea-all(data='0')
+						span(onclick="searchBorrow('borrow_interest_rate',0)") 全部
+					li.m2-invSea-unsel(data='0|8')
+						span(onclick="searchBorrow('borrow_interest_rate','0|8')") 8%及以下
+					li.m2-invSea-unsel(data='9|9')
+						span(onclick="searchBorrow('borrow_interest_rate','9|9')") 9%
+					li.m2-invSea-unsel(data='10|10')
+						span(onclick="searchBorrow('borrow_interest_rate','10|10')") 10%
+					li.m2-invSea-unsel(data='10.1|100')
+						span(onclick="searchBorrow('borrow_interest_rate','10.1|100')") 其他
+				ul#search_leftday.m2-invSea-tim
+					li.m2-invSea-tit
+						span 时       限
+					li.m2-invSea-sel.m2-invSea-all(data='0')
+						span(onclick="searchBorrow('leftday',0)") 全部
+					li.m2-invSea-unsel(data='0|60')
+						span(onclick="searchBorrow('leftday','0|60')") 60天及以下
+					li.m2-invSea-unsel(data='61|180')
+						span(onclick="searchBorrow('leftday','61|180')") 61天-180天
+					li.m2-invSea-unsel(data='181|360')
+						span(onclick="searchBorrow('leftday','181|360')") 181天-360天
+					li.m2-invSea-unsel(data='361|3600')
+						span(onclick="searchBorrow('leftday','361|3600')") 其他
+				ul#search_progress.m2-invSea-pro
+					li.m2-invSea-tit
+						span 进       度
+					li.m2-invSea-sel.m2-invSea-all(data='0')
+						span(onclick="searchBorrow('progress',0)") 全部
+					li.m2-invSea-unsel(data='0|30')
+						span(onclick="searchBorrow('progress','0|30')") 30%以下
+					li.m2-invSea-unsel(data='31.01|60')
+						span(onclick="searchBorrow('progress','30.01|60')") 30%-60%
+					li.m2-invSea-unsel(data='61.01|100')
+						span(onclick="searchBorrow('progress','60.01|100')") 60%-100%
+				ul#search_borrow_status.m2-invSea-sta
+					li.m2-invSea-tit
+						span 项目状态
+					li.m2-invSea-sel.m2-invSea-all(data='0')
+						span(onclick="searchBorrow('borrow_status','0')") 全部
+					li.m2-invSea-unsel(data='2')
+						span(onclick="searchBorrow('borrow_status','2')") 正在募集
+					li.m2-invSea-unsel(data='6')
+						span(onclick="searchBorrow('borrow_status','6')") 还款中
+					li.m2-invSea-unsel(data='7')
+						span(onclick="searchBorrow('borrow_status','7')") 已结清
+				.m2-invSeadisply
+					span(style='margin-left:10px;') 筛选条件
+					b.m2-invDis-ben(onclick="searchBorrow('borrow_interest_rate',0)")
+						| 全部
+						i
+					b.m2-invDis-tim(onclick="searchBorrow('leftday',0)")
+						| 全部
+						i
+					b.m2-invDis-sum(onclick="searchBorrow('borrow_money',0)")
+						| 全部
+						i
+					b.m2-invDis-pro(onclick="searchBorrow('progress',0)")
+						| 全部
+						i
+					b.m2-invDis-sta(onclick="searchBorrow('borrow_status',0)")
+						| 全部
+						i
+					u(onclick="searchBorrow('borrow_interest_rate',0)&searchBorrow('leftday',0)&searchBorrow('borrow_money',0)&searchBorrow('progress',0)&searchBorrow('borrow_status',0)")
+						i
+						| 重置
+		.m2-invResult-con
+			.m2-invResult-head
+				h3
+					i
+					| 项目筛选列表
+			#allP(style='width:100%; height:100%; position:fixed; z-index:100;top:0; left:0;display:none;')
+				div(style='width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;')
+				div(style='width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;')
+					p(style='color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;') 该项目已还清，为保护企业隐私，不再公示项目信息
+					#close(style='width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;') X
+			.m2-invResuleitem-box
+				ul
+					li.m2-invResuleitem
+						.m2-invItem-lef
+							.m2-invItemleft-lef
+								i.m2-invItem-new
+								img(src='/th/images/invest/182015-20160902132425642.jpg', alt='爱车贷-雪佛兰迈锐宝-XAA067')
+							.m2-invItemleft-rig
+								h4
+									i.m2-invItemIcon-inv
+									a(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank', title='爱车贷-雪佛兰迈锐宝-XAA067') 爱车贷-雪佛兰迈锐宝-XAA067
+								ul.m2-invItemleft-list
+									li
+										span.m2-invItemdet-big.huodongjiaxi
+											| 8%+1% 										
+											p.jiaxishow(style='margin-left:-2px;')
+												| 活动加息1%
+										span.m2-invItemdet-nor 预期年化收益率
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big
+											| 26天
+										span.m2-invItemdet-nor 期限
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big 86,200.00
+										span.m2-invItemdet-nor 融资金额
+								.m2-invItemprogress
+									span.m2-invItemprogress-tit
+										| 正在募集
+									b
+										i(style='width:42.11% ')
+										u(style='left:42.11%') 可投：4.99万
+									span.m2-invItemprogress-per 42.11%
+						.m2-invItem-rig
+							.m2-invItemrig-main
+								p.m2-invItemrig-gua
+									span.m2-invItemrig-guaTit(style='color:#333;') 担保措施:
+									span.m2-invItemrig-guaDet(style='color:#ff9900;') 车辆质押
+								.m2-invItemrig-link
+									a.m2-invItemlink-inv(href='chanpin.html#-moxOeTwTZaOw8TY79g.html', target='_blank', title='点击立即投资 爱车贷-雪佛兰迈锐宝-XAA067') 立即投资
+							p.m2-invItem-det(style='text-indent:20px;')
+								| 投资万元预期收益：
+								span 64.10元
+							p.m2-invItem-det
+								| 投资起点金额：
+								span(style='color:#ff6666;') 100元
+					li.m2-invResuleitem
+						.m2-invItem-lef
+							.m2-invItemleft-lef
+								i.m2-invItem-hot
+								img(src='/th/images/invest/200528-201609011135068334.jpg', alt='【新手标】爱车贷-丰田普瑞维亚-SX047')
+							.m2-invItemleft-rig
+								h4
+									i.m2-invItemIcon-inv
+									a(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank', title='【新手标】爱车贷-丰田普瑞维亚-SX047') 【新手标】爱车贷-丰田普瑞维亚-SX047
+								ul.m2-invItemleft-list
+									li
+										span.m2-invItemdet-big.huodongjiaxi
+											| 9%+1% 										
+											p.jiaxishow(style='margin-left:-2px;')
+												| 活动加息1%
+										span.m2-invItemdet-nor 预期年化收益率
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big
+											| 53天
+										span.m2-invItemdet-nor 期限
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big 230,000.00
+										span.m2-invItemdet-nor 融资金额
+								.m2-invItemprogress
+									span.m2-invItemprogress-tit
+										| 正在募集
+									b
+										i(style='width:99.91% ')
+										u(style='left:99.91%') 可投：200元
+									span.m2-invItemprogress-per 99.91%
+						.m2-invItem-rig
+							.m2-invItemrig-main
+								p.m2-invItemrig-gua
+									span.m2-invItemrig-guaTit(style='color:#333;') 担保措施:
+									span.m2-invItemrig-guaDet(style='color:#ff9900;') 车辆质押
+								.m2-invItemrig-link
+									a.m2-invItemlink-inv(href='chanpin.html#-md0YeDEUbvew8TU68g.html', target='_blank', title='点击立即投资 【新手标】爱车贷-丰田普瑞维亚-SX047') 立即投资
+							p.m2-invItem-det(style='text-indent:20px;')
+								| 投资万元预期收益：
+								span 145.2元
+							p.m2-invItem-det
+								| 投资起点金额：
+								span(style='color:#ff6666;') 100元
+					li.m2-invResuleitem
+						.m2-invItem-lef
+							.m2-invItemleft-lef
+								img(src='/th/images/invest/200528-201609031224409479.jpg', alt='爱车贷-尼桑天籁-SX119')
+							.m2-invItemleft-rig
+								h4
+									i.m2-invItemIcon-back
+									a(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank', title='爱车贷-尼桑天籁-SX119') 爱车贷-尼桑天籁-SX119
+								ul.m2-invItemleft-list
+									li
+										span.m2-invItemdet-big.huodongjiaxi
+											| 9%+1% 										
+											p.jiaxishow(style='margin-left:-2px;')
+												| 活动加息1%
+										span.m2-invItemdet-nor 预期年化收益率
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big
+											| 2个月
+										span.m2-invItemdet-nor 期限
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big 40,000.00
+										span.m2-invItemdet-nor 融资金额
+								.m2-invItemprogress
+									span.m2-invItemprogress-tit
+										| 还款中
+									b
+										i(style='width:100.00% ')
+									span.m2-invItemprogress-per 100.00%
+						.m2-invItem-rig
+							.m2-invItemrig-main
+								p.m2-invItemrig-gua
+									span.m2-invItemrig-guaTit(style='color:#333;') 担保措施:
+									span.m2-invItemrig-guaDet(style='color:#ff9900;') 车辆质押
+								.m2-invItemrig-link
+									a.m2-invItemlink-back(href='chanpin.html#-md0fJWlJZPew8TY+8A.html', target='_blank', title='点击还款中查看 爱车贷-尼桑天籁-SX119') 还款中
+							.m2-invItem-rigBg
+					li.m2-invResuleitem
+						.m2-invItem-lef
+							.m2-invItemleft-lef
+								img(src='/th/images/invest/199076-201609031612075569.jpg', alt='爱车贷-风行景逸-XT125')
+							.m2-invItemleft-rig
+								h4
+									i.m2-invItemIcon-back
+									a(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank', title='爱车贷-风行景逸-XT125') 爱车贷-风行景逸-XT125
+								ul.m2-invItemleft-list
+									li
+										span.m2-invItemdet-big.huodongjiaxi
+											| 8%+1% 										
+											p.jiaxishow(style='margin-left:-2px;')
+												| 活动加息1%
+										span.m2-invItemdet-nor 预期年化收益率
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big
+											| 1个月
+										span.m2-invItemdet-nor 期限
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big 20,000.00
+										span.m2-invItemdet-nor 融资金额
+								.m2-invItemprogress
+									span.m2-invItemprogress-tit
+										| 还款中
+									b
+										i(style='width:100.00% ')
+									span.m2-invItemprogress-per 100.00%
+						.m2-invItem-rig
+							.m2-invItemrig-main
+								p.m2-invItemrig-gua
+									span.m2-invItemrig-guaTit(style='color:#333;') 担保措施:
+									span.m2-invItemrig-guaDet(style='color:#ff9900;') 车辆质押
+								.m2-invItemrig-link
+									a.m2-invItemlink-back(href='chanpin.html#-mNtPLjgTY!Gw8TY++A.html', target='_blank', title='点击还款中查看 爱车贷-风行景逸-XT125') 还款中
+							.m2-invItem-rigBg
+					li.m2-invResuleitem
+						.m2-invItem-lef
+							.m2-invItemleft-lef
+								img(src='/th/images/invest/208071-201609031345456731.jpg', alt='爱车贷-本田艾力绅-HCK120')
+							.m2-invItemleft-rig
+								h4
+									i.m2-invItemIcon-back
+									a(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank', title='爱车贷-本田艾力绅-HCK120') 爱车贷-本田艾力绅-HCK120
+								ul.m2-invItemleft-list
+									li
+										span.m2-invItemdet-big.huodongjiaxi
+											| 9%+1% 										
+											p.jiaxishow(style='margin-left:-2px;')
+												| 活动加息1%
+										span.m2-invItemdet-nor 预期年化收益率
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big
+											| 2个月
+										span.m2-invItemdet-nor 期限
+										i.m2-invItemdet-line
+									li
+										span.m2-invItemdet-big 210,000.00
+										span.m2-invItemdet-nor 融资金额
+								.m2-invItemprogress
+									span.m2-invItemprogress-tit
+										| 还款中
+									b
+										i(style='width:100.00% ')
+									span.m2-invItemprogress-per 100.00%
+						.m2-invItem-rig
+							.m2-invItemrig-main
+								p.m2-invItemrig-gua
+									span.m2-invItemrig-guaTit(style='color:#333;') 担保措施:
+									span.m2-invItemrig-guaDet(style='color:#ff9900;') 车辆质押
+								.m2-invItemrig-link
+									a.m2-invItemlink-back(href='chanpin.html#-nNtKLzlGY!Gw8TY+8g.html', target='_blank', title='点击还款中查看 爱车贷-本田艾力绅-HCK120') 还款中
+							.m2-invItem-rigBg
+			.m2-newListpage-con(style='padding-top:5px;')
+				.m2-newListpage
+					.m2-news-pages(style='padding-right:40px;margin:12px auto;')
+						a.m2-pages-num.m2-page-prev(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=1') <
+						a.m2-pages-num.m2-page-sel(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=1') 1
+						a.m2-pages-num.m2-page-unsel(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=2') 2
+						a.m2-pages-num.m2-page-unsel(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=3') 3
+						a.m2-pages-num.m2-page-unsel(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=4') 4
+						a.m2-pages-num.m2-page-unsel(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=5') 5
+						a.m2-pages-num.m2-page-next(href='/touzi_licai_chanpin.html?isAjax=1&type=borrow&page=2') >

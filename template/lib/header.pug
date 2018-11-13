@@ -1,0 +1,143 @@
+.m2-commonTop-con
+    .m2-commonTop
+        .m2-commonTop-left
+            .m2-commonTop-tel
+                i
+                | 4006 - 777 - 518
+            .m2-commonTop-service(style='padding-left:0;')
+                span(style='float:left;') 客服：
+                div(style='float:left;display:inline-block;width:92px;height:22px;padding:6px 0 13px 0;')
+            .m2-commonEwm
+                span.m2-commonEwm-tit 关注我们：
+                .m2-commonEwmwx
+                    i.m2-commonEwmicon
+                    .m2-commonEwmhid
+                        em.m2-commonEwmhid-arr
+                        em.m2-commonEwmhid-arrBg
+                        b
+                        span
+                            | 扫一扫
+                            br
+                            | 关注爱钱帮订阅号
+                .m2-commonEwmwb
+                    i.m2-commonEwmicon(onclick='window.open("http://weibo.com/iqianbang")')
+        .m2-commonTop-right
+            .m2-commonTop-link
+                ul
+                    li.m2-commonTop-btn
+                        a(href='register', target='_blank') 注册
+                    li.m2-commonTop-btn
+                        a(href='login#login_callback=/index', target='_blank', style='border-right:none;') 登录
+                    li.m2-commonTop-btn
+                        a#cfpage(href='company_finance', style='border-right:none;width: 50px;') 企业理财
+            .m2-commonTop-app(onclick='window.open("appdownload")', style='cursor:pointer;')
+                a.m2-commonTop-and(href='')
+                a.m2-commonTop-ios(href='')
+                span app下载入口
+.m2-commonNav-con
+    .m2-commonNav-box
+        .m2-commonLogo
+            a.m2-comImg-logo(href='/')
+                img(src='/th/images/header/m2-logo.png', title='爱钱帮投资理财平台logo', alt='爱钱帮标识')
+            a.m2-conImg-slogan(href='')
+                img(src='/th/images/header/m2-sloganHS.png', title='徽商银行投资理财托管', alt='')
+        .m2-commonNav
+            ul.m2-commonNavul-fir(data_page='onepage')
+                li.m2-commonNav-fir
+                    a#onepage(href='/') 首页
+                li.m2-commonNav-fir
+                    a#twopage(href='invest') 我要投资
+                li.m2-commonNav-fir
+                    a#sevenpage(href='vipshop') 会员商城
+                li.m2-commonNav-fir
+                    a#threepage(href='usercenter') 我的账户
+                li.m2-commonNav-fir
+                    a#fourpage(href='safety') 安全保障
+                li.m2-commonNav-fir
+                    a#fivepage(href='about') 关于我们
+                li.m2-commonNav-fir
+                    a#sixpage(href='activity') 活动专区
+//右侧导航
+#fixbar
+  // 右侧边栏顶部
+  #m2-commonRight.m2-commonRight2
+      ul.m2-comRiglist.myclick
+          li.m2-comRigli.m2-comRigli-ewm.m2-comRigli_new(style='border-top:1px solid #fff;', data='#fixnavbar_one')
+              div
+              img(src='/th/images/header/fixed-r1.png', alt='我的账户')
+              .toAbs
+                  div
+                      img(src='/th/images/header/fixedl-1_v2.png', alt='我的账户')
+                  div
+          li.m2-comRigli.m2-comRigli-tel.m2-comRigli_new(data='#fixnavbar_two')
+              img(src='/th/images/header/fixed-r2.png', alt='我的红包')
+              div
+              .toAbs
+                  div
+                      img(src='/th/images/header/fixedl-2_v2.png', alt='我的红包')
+                  div
+          li.m2-comRigli.m2-comRigli-qq.m2-comRigli_new(data='#fixnavbar_three')
+              img(src='/th/images/header/fixed-r3.png', alt='我的加息券')
+              div
+              .toAbs
+                  div
+                      img(src='/th/images/header/fixedl-3_v2.png', alt='我的加息券')
+                  div
+          li.m2-comRigli.m2-comRigli-sug.m2-comRigli_new(data='#fixnavbar_four')
+              img(src='/th/images/header/fixed-r4.png', alt='站内信息')
+              div
+              .toAbs
+                  div
+                      img(src='/th/images/header/fixedl-4_v2.png', alt='站内信息')
+                  div
+  // 右侧边栏底部
+  .m2-commonRight
+      ul.m2-comRiglist
+          li.m2-comRigli.m2-comRigli-ewm(style='border-top:1px solid #fff;')
+              i.m2-comRigli-icon
+              span.m2-comRigli-hov
+                  | 关注
+                  br
+                  | 微信
+              .m2-comRighide.m2-comRighide-ewm
+                  i
+          li.m2-comRigli.m2-comRigli-tel
+              i.m2-comRigli-icon
+              span.m2-comRigli-hov
+                  | 联系
+                  br
+                  | 我们
+              .m2-comRighide.m2-comRighide-tel
+                  .m2-comRighide-telSpace
+                  b.m2-comRighide-telBorder
+                  .m2-comRigtel-lef
+                      .m2-comRigtel-lefTop
+                          input#phonenumber(type='text', placeholder='请输入您的手机号')
+                      .m2-comRigtel-lefBot
+                          input#ivrSecurityCode(type='text', placeholder='验证码')
+                          img#ivrSecurityCodeImg(onclick='getCode()', src='/th/images/header/Index-VerifyCode.png', alt='验证码', title='点击更新验证码')
+                  .m2-comRigtel-rig
+                      span(onclick='callback()')
+                          | 免费
+                          br
+                          | 拨打
+          li.m2-comRigli.m2-comRigli-qq(style='position:relative;')
+              #BizQQWPA(style='width:50px;height:50px;position:absolute;top:0;left:0;z-index:150;')
+              i.m2-comRigli-icon(style='z-index:100;')
+              span.m2-comRigli-hov(style='z-index:100;')
+                  | 在线
+                  br
+                  | 客服
+          li.m2-comRigli.m2-comRigli-sug(style='border-bottom: 1px solid #fff;')
+              i.m2-comRigli-icon
+              span.m2-comRigli-hov
+                  a(href='guide', style='color:#fff;')
+                      | 帮助
+                      br
+                      | 中心
+          li.m2-comRigli.m2-comRigli-top
+              i.m2-comRigli-icon
+              span.m2-comRigli-hov
+                  | 返回
+                  br
+                  | 顶部
