@@ -35,7 +35,7 @@ img{ border:0; vertical-align:middle }
 	height: 15px;
 	position: relative;
 	top: 2px;
-	background: url(/finance-five/images/footer/iconB.png) no-repeat -40px -60px;
+	background: url(/public/images/footer/iconB.png) no-repeat -40px -60px;
 }
 .m2-common-topLef h4 a{
 	color: #4C5154;
@@ -84,10 +84,10 @@ img{ border:0; vertical-align:middle }
 	width: 19px;
 	height: 16px;
 }
-.m2-wxewm i{background: url(/finance-five/images/footer/iconB.png) no-repeat 0 -80px;}
-.m2-wbewm i{background: url(/finance-five/images/footer/iconB.png) no-repeat 0 -100px;}
-.m2-wxewm:hover i{background: url(/finance-five/images/footer/iconB.png) no-repeat -19px -80px;}
-.m2-wbewm:hover i{background: url(/finance-five/images/footer/iconB.png) no-repeat -19px -100px;}
+.m2-wxewm i{background: url(/public/images/footer/iconB.png) no-repeat 0 -80px;}
+.m2-wbewm i{background: url(/public/images/footer/iconB.png) no-repeat 0 -100px;}
+.m2-wxewm:hover i{background: url(/public/images/footer/iconB.png) no-repeat -19px -80px;}
+.m2-wbewm:hover i{background: url(/public/images/footer/iconB.png) no-repeat -19px -100px;}
 
 .m2-top-ewm{
 	position: absolute;
@@ -106,10 +106,10 @@ img{ border:0; vertical-align:middle }
 	height: 123px;
 }
 .m2-top-wxEwm{
-	background: url(/finance-five/images/footer/iconGa.png) no-repeat 0 -123px;
+	background: url(/public/images/footer/iconGa.png) no-repeat 0 -123px;
 }
 .m2-top-wbEwm{
-	background: url(/finance-five/images/footer/iconGa.png) no-repeat 0 0;
+	background: url(/public/images/footer/iconGa.png) no-repeat 0 0;
 }
 em.m2-topShare-arr{
 	display:inline-block;
