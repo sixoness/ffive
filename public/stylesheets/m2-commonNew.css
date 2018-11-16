@@ -537,7 +537,8 @@ img{ border:0; vertical-align:middle }
 	height: 34px;
 	top: 4px;
 	left: 4px;
-	background: url(../images/header/m2-newcommonIcon.png) no-repeat -130px -24px;
+	background: url(../images/header/mars-wechat.png) no-repeat;
+	background-size: 34px 34px;
 }
 .m2-comRigli-tel .m2-comRigli-icon{
 	width: 24px;
@@ -585,7 +586,8 @@ img{ border:0; vertical-align:middle }
 	display: block;
 	width: 127px;
 	height: 120px;
-	background: url(../images/header/m2-newcommonIcon.png) no-repeat 0px -48px;
+	background: url(../images/header/mars-wechat.png) no-repeat;
+	background-size: 127px 120px;
 }
 .m2-comRigli-ewm:hover .m2-comRighide-ewm{
 	display: block;

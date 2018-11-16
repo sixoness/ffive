@@ -1,8 +1,8 @@
 
 
-inCludeScript("../th/javascripts/jquery.SuperSlide.js");
-inCludeScript("../th/javascripts/m2-front.js");
-inCludeScript("../th/javascripts/jquery.roundabout.js");
+inCludeScript("../finance-five/javascripts/jquery.SuperSlide.js");
+inCludeScript("../finance-five/javascripts/m2-front.js");
+inCludeScript("../finance-five/javascripts/jquery.roundabout.js");
 
 
 

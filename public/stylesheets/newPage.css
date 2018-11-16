@@ -1226,13 +1226,15 @@ p.progresstxt b{color: #BA3635;}
 	display:block;
 	width: 123px;
 	height: 123px;
-	background: url(../images/footer/iconGa.png) 0 0 no-repeat;
+	background: url(../images/footer/mars-wechat.png);
+	background-size: 123px;
 }
 .mainNewblog ul li.joinWb span{
 	display:block;
 	width: 123px;
 	height: 123px;
-	background: url(../images/footer/iconGa.png) 0 -123px no-repeat;
+	background: url(../images/footer/mars-wechat.png);
+	background-size: 123px;
 	margin-left:10px;
 }
 .mainNewcopy{
